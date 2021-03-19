@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-4">
+      <div class="row justify-content-center ">
+        <div class="card-body col-6 ">
+          <h5 class="mb-4 text-center">{{ 'forms.modifier' | translate }}</h5>
+          <form [formGroup]="modForm" #form="ngForm" (ngSubmit)="onSubmit()" novalidate class="tooltip-label-right">
+            <div class="form-group">
+              <label for="name">{{ 'forms.stat' | translate }}</label>
+              <ng-select [items]="stats" formControlName="name" id="name">
+              </ng-select>
+              <div *ngIf="modForm.get('name').errors?.required && form.submitted" class="invalid-tooltip">Stat is required</div>
+            </div>
+            <div class="form-group">
+              <label for="value">{{ 'forms.amount' | translate }}</label>
+              <input type="number" class="form-control" formControlName="value" id="value">
+              <div *ngIf="modForm.get('value').errors?.required && form.submitted" class="invalid-tooltip">Amount is required</div>
+              <div *ngIf="modForm.get('value').errors && form.submitted" class="invalid-tooltip">Amount should be between -10 and 10</div>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-primary" type="submit">{{ 'forms.submit' | translate }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

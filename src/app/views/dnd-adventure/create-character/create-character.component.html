@@ -1,0 +1,82 @@
+<h5 class="mb-4">{{ 'characters.create' | translate }}</h5>
+
+<div class="row mb-2">
+  <div class="col-12">
+    <div class="card">
+      <form [formGroup]="createCharacterForm" #form="ngForm" (ngSubmit)="createForm()">
+        <tabset #tabset class="card-tabs nav-fill">
+          <tab heading="General" class="card-body" id="general">
+            <div class="row justify-content-center text-center">
+              <div class="col-6">
+                <label class="font-weight-bold">Character name: </label>
+                <br>
+                <input type="text" formControlName="characterName" class="form-control"/>
+                <div class="mb-5"></div>
+                <label class="font-weight-bold">Character Description: </label>
+                <br>
+                <textarea class="form-control" formControlName="characterDescription"></textarea>
+              </div>
+            </div>
+            <div class="col text-right mb-1">
+              <button type="button" class="btn btn-primary btn-shadow" (click)="goToNextTab()">Next</button>
+            </div>
+          </tab>
+          <tab heading="Race" class="card-body" id="race" (selectTab)="changeTab($event)">
+            <div class="loading" *ngIf="isLoading"></div>
+            <div class="row justify-content-center text-center" *ngIf="!isLoading">
+              <div class="col-6">
+                <h1>Chose a Race</h1>
+                <br>
+                <accordion [isAnimated]="true" [closeOthers]="true">
+                  <accordion-group heading="{{race.name.toUpperCase()}}" [panelClass]="'border'" [isOpen]="i === 0"
+                                   *ngFor="let race of races; let i = index">
+                    <div class="text-left">
+                      <div class="card-body border">
+
+                        <p class="text-left mb-0">{{race.description}}</p>
+                      </div>
+                      <div class="separator"></div>
+                      <div>
+
+                        <label><span class="align-middle border-theme-2 log-indicator"></span> Pros:</label>
+                        <br>
+                        <p>{{race.pros}}</p>
+                        <br>
+                        <label><span class="align-middle border-theme-2 log-indicator"></span> Cons:</label>
+                        <p>{{race.cons}}</p>
+                        <h5>Race modifiers</h5>
+                        <table class="table">
+                          <thead>
+                          <tr>
+                            <th scope="col">Stat Type</th>
+                            <th scope="col">Stat Value</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let modifier of race.modifiers">
+                            <td>{{modifier.name}}</td>
+                            <td>{{modifier.value > 0 ? '+' : '-'}} {{modifier.value}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                    <div class="col text-right mb-1">
+                      <button type="button" class="btn btn-primary btn-shadow" (click)="selectRace(race.uuid)">Select</button>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
+            </div>
+          </tab>
+          <tab heading="Tab 3" class="card-body">
+            <h6 class="mb-4">{{'cards.cake-text-6' | translate}}</h6>
+            <div class="col text-right mb-1">
+              <button type="button" class="btn btn-primary btn-shadow" (click)="goToNextTab()">Next</button>
+            </div>
+          </tab>
+        </tabset>
+      </form>
+    </div>
+  </div>
+</div>
