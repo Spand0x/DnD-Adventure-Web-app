@@ -38,7 +38,7 @@
                         <i class="simple-icon-arrow-down"></i>
                         <span class="d-inline-block">{{sub.label | translate}}</span>
                     </a>
-                    <div [collapse]="false" #collapseSub="bs-collapse" [isAnimated]="true">
+                    <div [collapse]="collapseSub.isCollapsed" #collapseSub="bs-collapse" [isAnimated]="true">
                         <div *ngIf="sub.subs && sub.subs.length > 0">
                             <ul class="list-unstyled inner-level-menu">
                                 <li *ngFor="let deepSub of sub.subs" [ngClass]="{'active': currentUrl === deepSub.to}">

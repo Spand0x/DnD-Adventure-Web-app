@@ -11,6 +11,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'race', pathMatch: 'full'},
       {path: 'modifier', component: ModifierComponent},
       {path: 'race', component: RaceComponent},
+      {path: 'action', loadChildren: () => import('./actions/actions.module').then(m => m.ActionsModule)}
     ]
   }
 ];

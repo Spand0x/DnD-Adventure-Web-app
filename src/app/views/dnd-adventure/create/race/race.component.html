@@ -74,7 +74,7 @@
                     <div class="form-group">
                       <label for="dis-description">{{ 'forms.description' | translate}}</label>
                       <textarea class="form-control" rows="2" formControlName="description" id="dis-description"></textarea>
-                      <div *ngIf="disadvantage.get('description').errors?.required && form.submitted" class="invalid-tooltip">Disadvantage name is required!</div>
+                      <div *ngIf="disadvantage.get('description').errors?.required && form.submitted" class="invalid-tooltip">Disadvantage description is required!</div>
                       <div *ngIf="disadvantage.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Disadvantage description must contain at least 3 characters!</div>
 
                     </div>

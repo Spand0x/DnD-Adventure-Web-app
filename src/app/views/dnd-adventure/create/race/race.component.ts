@@ -53,6 +53,7 @@ export class RaceComponent implements OnInit {
       this.raceService.save(this.raceForm.value)
         .subscribe(race => {
           this.notificationService.successNotification('Race created successfully.');
+          this.ngOnInit();
         }, error => this.notificationService.errorNotification(error));
     }
   }
