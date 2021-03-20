@@ -35,8 +35,8 @@ export class SpellComponent implements OnInit {
   onSubmit() {
     this.spellForm.value.type = 'SPELL';
     if (this.spellForm.valid) {
-      this.actionService.saveSpell(this.spellForm.value)
-        .subscribe(modifier => {
+      this.actionService.createSpell(this.spellForm.value)
+        .subscribe(spell => {
           this.notificationService.successNotification('Spell created successfully');
         }, error => this.notificationService.errorNotification(error));
     }

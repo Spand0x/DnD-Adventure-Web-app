@@ -13,8 +13,8 @@
             <div class="form-group">
               <label for="dis-description">{{ 'forms.description' | translate}}</label>
               <textarea class="form-control" rows="4" formControlName="description" id="dis-description"></textarea>
-              <div *ngIf="spellForm.get('description').errors?.required && form.submitted" class="invalid-tooltip">Disadvantage description is required!</div>
-              <div *ngIf="spellForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Disadvantage description must contain at least 5 characters!</div>
+              <div *ngIf="spellForm.get('description').errors?.required && form.submitted" class="invalid-tooltip">Description is required!</div>
+              <div *ngIf="spellForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Description must contain at least 5 characters!</div>
             </div>
             <div class="form-group">
               <label for="range">{{ 'forms.range' | translate }}</label>

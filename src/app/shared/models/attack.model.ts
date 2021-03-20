@@ -7,9 +7,11 @@ export interface Attack {
   name: string;
   description: string;
   range: number;
-  bonus: number;
-  dice: DiceTypeEnum;
-  damage: number;
-  notes: string;
+  damageDice: DiceTypeEnum;
+  damageBonus: number;
+  hitChanceBonus: number;
   unlockLevel: number;
+  notes: string;
+  effect: string;
+  attackType: string;
 }
