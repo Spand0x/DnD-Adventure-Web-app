@@ -24,4 +24,8 @@ export class ActionService {
   createAttack(attack: Attack): Observable<Attack> {
     return this.http.post<Attack>(`${this.url}/attack`, attack);
   }
+
+  findAllAttacks(): Observable<Attack[]> {
+    return this.http.get<Attack[]>(`${this.url}/attack`);
+  }
 }

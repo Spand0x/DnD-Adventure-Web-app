@@ -50,24 +50,45 @@ const data: IMenuItem[] = [
             label: 'menu.spell',
             to: '/create/action/spell'
           },
-          {
-            icon: 'simple-icon-briefcase',
-            label: 'menu.action',
-            to: '/create/action/action'
-          },
-          {
-            icon: 'simple-icon-briefcase',
-            label: 'menu.bonus-action',
-            to: '/create/action/bonus'
-          },
-          {
-            icon: 'simple-icon-briefcase',
-            label: 'menu.other',
-            to: '/create/action/other'
-          }
+          // {
+          //   icon: 'simple-icon-briefcase',
+          //   label: 'menu.action',
+          //   to: '/create/action/action'
+          // },
+          // {
+          //   icon: 'simple-icon-briefcase',
+          //   label: 'menu.bonus-action',
+          //   to: '/create/action/bonus'
+          // },
+          // {
+          //   icon: 'simple-icon-briefcase',
+          //   label: 'menu.other',
+          //   to: '/create/action/other'
+          // }
         ]
+      },
+      {
+        icon: 'simple-icon-briefcase',
+        label: 'menu.class',
+        to: '/create/class'
       }
     ]
+  },
+  {
+    id: 'list',
+    icon: 'iconsminds-three-arrow-fork',
+    label: 'menu.list',
+    to: '/list',
+    subs: [{
+      icon: 'iconsminds-three-arrow-fork',
+      label: 'menu.actions',
+      to: '/list/action',
+      subs: [{
+        icon: 'iconsminds-three-arrow-fork',
+        label: 'menu.attack',
+        to: '/list/action/attack'
+      }]
+    }]
   },
   {
     id: 'docs',
