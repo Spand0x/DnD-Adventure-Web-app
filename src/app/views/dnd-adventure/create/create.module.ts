@@ -12,11 +12,12 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {NotifService} from '../../../shared/services/notif.service';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
+import { ClassComponent } from './class/class.component';
 
 
 
 @NgModule({
-  declarations: [CreateComponent, RaceComponent, ModifierComponent],
+  declarations: [CreateComponent, RaceComponent, ModifierComponent, ClassComponent],
   imports: [
     CommonModule,
     LayoutContainersModule,

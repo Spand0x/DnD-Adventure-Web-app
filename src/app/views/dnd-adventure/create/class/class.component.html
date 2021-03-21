@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card mb-4">
+      <div class="row justify-content-center ">
+        <div class="card-body col-6 ">
+          <h5 class="mb-4 text-center">Class</h5>
+          <form [formGroup]="classForm" #form="ngForm" (ngSubmit)="onSubmit()" novalidate class="tooltip-label-right">
+            <div class="form-group">
+              <label for="name">{{ 'forms.name' | translate }}</label>
+              <input type="text" class="form-control" formControlName="name" id="name">
+              <div *ngIf="classForm.get('name').errors?.required && form.submitted" class="invalid-tooltip">Stat is required</div>
+            </div>
+            <div class="form-group">
+              <label for="dis-description">{{ 'forms.description' | translate}}</label>
+              <textarea class="form-control" rows="4" formControlName="description" id="dis-description"></textarea>
+              <div *ngIf="classForm.get('description').errors?.required && form.submitted" class="invalid-tooltip">Description is required!</div>
+              <div *ngIf="classForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Description must contain at least 5
+                characters!
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="hitPointsDice">Dice for HP</label>
+              <ng-select [items]="dices" formControlName="hitPointsDice" id="hitPointsDice" (change)="changeHpDice($event)">
+              </ng-select>
+              <div *ngIf="classForm.get('hitPointsDice').errors?.required && form.submitted" class="invalid-tooltip">Dice for HP is required</div>
+            </div>
+            <div class="mb-5" *ngIf="hpDice">
+              <p><strong>Hit Dice</strong>: 1{{hpDice}} per level<br>
+                <strong>Hit Dice at 1st Level</strong>: {{hpNumber}} + your Constitution modifier<br>
+                <strong>Hit Dice at Higher Levels</strong>: 1{{hpDice}} (or 5) + your Constitution modifier per level after 1st</p>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-primary" type="submit">{{ 'forms.submit' | translate }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
