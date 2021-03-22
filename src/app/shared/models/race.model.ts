@@ -1,10 +1,12 @@
 import {Modifier} from './stats-modifiers.model';
+import {BaseRaceTraits} from './baseRaceTraits.model';
 
 export interface Race {
   uuid: string;
   name: string;
   description: string;
-  advantages: string[];
-  disadvantages: string[];
+  advantages: BaseRaceTraits[];
+  disadvantages: BaseRaceTraits[];
   modifiers: Modifier[];
+  isExpanded: false;
 }

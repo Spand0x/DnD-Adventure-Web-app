@@ -2,12 +2,12 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {CharacterClass} from '../models/CharacterClass.model';
+import {CharacterClass} from '../models/characterClass.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClassService {
+export class CharacterClassService {
 
   private apiUrl = environment.apiUrl;
   private requestMapping = '/classes';
@@ -18,5 +18,9 @@ export class ClassService {
 
   createClass(characterClass: CharacterClass): Observable<any> {
     return this.http.post(`${this.url}`, characterClass);
+  }
+
+  getAllClasses(): Observable<CharacterClass[]> {
+    return this.http.get<CharacterClass[]>(`${this.url}`);
   }
 }

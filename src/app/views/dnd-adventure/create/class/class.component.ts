@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DiceTypeEnum} from '../../../../shared/models/dice-type-enum.model';
-import {ClassService} from '../../../../shared/services/class.service';
+import {CharacterClassService} from '../../../../shared/services/character-class.service';
 import {NotifService} from '../../../../shared/services/notif.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class ClassComponent implements OnInit {
   hpDice: string;
   hpNumber: number;
 
-  constructor(private classService: ClassService,
+  constructor(private classService: CharacterClassService,
               private notifService: NotifService) {
   }
 

@@ -9,6 +9,8 @@ import {TabsModule} from 'ngx-bootstrap/tabs';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {SimpleNotificationsModule} from 'angular2-notifications';
+import {ArchwizardModule} from 'angular-archwizard';
+import {NotifService} from '../../shared/services/notif.service';
 
 
 @NgModule({
@@ -24,6 +26,10 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
     SimpleNotificationsModule.forRoot(),
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
+    ArchwizardModule,
+  ],
+  providers: [
+    NotifService
   ]
 })
 export class DndAdventureModule {

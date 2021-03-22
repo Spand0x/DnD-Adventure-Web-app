@@ -48,12 +48,10 @@ export class RaceComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.raceForm.value);
     if (this.raceForm.valid) {
       this.raceService.save(this.raceForm.value)
         .subscribe(race => {
           this.notificationService.successNotification('Race created successfully.');
-          this.ngOnInit();
         }, error => this.notificationService.errorNotification(error));
     }
   }
