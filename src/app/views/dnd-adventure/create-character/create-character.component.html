@@ -105,7 +105,7 @@
                     <tbody>
                     <tr *ngFor="let modifier of race.modifiers">
                       <td>{{modifier.name}}</td>
-                      <td>{{modifier.value > 0 ? '+' : ''}} {{modifier.value}}</td>
+                      <td>{{modifier.value > 0 ? '+' : ''}}{{modifier.value}}</td>
                     </tr>
                     </tbody>
                   </table>
@@ -151,7 +151,6 @@
                 </div>
                 <div class="separator"></div>
                 <div class="mb-5 mt-3 text-left">
-                  <p><strong>Primary Stat:</strong>&nbsp;{{charClass.primaryStat}}<br></p>
                   <p><strong>Saving Throw Stat:</strong>&nbsp;{{charClass.savingThrowStat}}</p>
                 </div>
               </accordion-group>
@@ -182,11 +181,11 @@
                     [formControlName]="stat.toLowerCase()"
                     [id]="stat.toLowerCase()"
                     type="number"/>
-                  <div class="mt-1 font-weight-bold" *ngIf="selectedClassPrimaryStat === stat.toLowerCase()"><h6>+2</h6></div>
+                    <h6 class="mt-1 font-weight-bold">{{selectedRaceModifiers[stat.toLowerCase()]}}</h6>
                 </div>
               </div>
               <div class="row mt-2 mb-2 ml-2" *ngIf="statsForm.invalid && statsFormSubmitted">
-                <h5  class="text-danger">Every stat should be between 3 and 18</h5>
+                <h5 class="text-danger">Every stat should be between 3 and 18</h5>
               </div>
               <div class="row mb-2 justify-content-end">
                 <button class="btn btn-primary"

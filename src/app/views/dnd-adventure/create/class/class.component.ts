@@ -27,7 +27,6 @@ export class ClassComponent implements OnInit {
       name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       description: new FormControl(null, [Validators.required, Validators.minLength(5)]),
       hitPointsDice: new FormControl(null, [Validators.required]),
-      primaryStat: new FormControl(null, [Validators.required]),
       savingThrowStat: new FormControl(null, [Validators.required])
     });
   }

@@ -6,7 +6,6 @@ export interface CharacterClass {
   name: string;
   description: string;
   hitPointsDice: DiceTypeEnum;
-  primaryStat: StatsEnum;
   savingThrowStat: StatsEnum;
   isExpanded: boolean;
 }

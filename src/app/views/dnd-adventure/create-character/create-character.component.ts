@@ -9,11 +9,13 @@ import {CharacterClass} from '../../../shared/models/character-class.model';
 import {StatsEnum} from '../../../shared/models/stats-enum.model';
 import {RollDiceService} from '../../../shared/services/roll-dice.service';
 import {DiceTypeEnum} from '../../../shared/models/dice-type-enum.model';
+import {Modifier} from '../../../shared/models/stats-modifiers.model';
 
 @Component({
   selector: 'app-create-character',
   templateUrl: './create-character.component.html',
 })
+
 export class CreateCharacterComponent implements OnInit {
   @ViewChild('wizard') wizard: WizardComponent;
 
@@ -27,7 +29,7 @@ export class CreateCharacterComponent implements OnInit {
   diceRollsResult = [];
   selectedRace: string;
   selectedClass: string;
-  selectedClassPrimaryStat: string;
+  selectedRaceModifiers = {} as Modifier;
   selectedStats = [];
   statsFormSubmitted = false;
 
@@ -94,8 +96,11 @@ export class CreateCharacterComponent implements OnInit {
     for (let i = 0; i < 6; i++) {
       this.statsDropdown[i] = this.stats;
     }
-    this.selectedClassPrimaryStat = this.classes.filter(curClass => curClass.uuid === this.selectedClass)[0]
-      .primaryStat.toLowerCase();
+    this.races.filter(curRace => curRace.uuid === this.selectedRace)[0]
+      .modifiers.forEach(modif => {
+      this.selectedRaceModifiers[modif.name.toString().toLowerCase()]
+        = modif.value > 0 ? '+' + modif.value : modif.value;
+    });
     this.wizard.goToNextStep();
   }
 
@@ -134,6 +139,7 @@ export class CreateCharacterComponent implements OnInit {
   submit() {
     if (this.statsForm.valid) {
       console.log(this.statsForm);
+      console.log('patch values with modifiers');
     } else {
       this.statsFormSubmitted = true;
     }
