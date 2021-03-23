@@ -1,4 +1,4 @@
-import {StatsEnum} from './stats-enum.model';
+import {StatsEnum} from './stats.enum';
 
 export interface Modifier {
   uuid: string;

@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {DiceTypeEnum} from '../../../../shared/models/dice-type-enum.model';
+import {DiceTypeEnum} from '../../../../shared/models/dice-type.enum';
 import {CharacterClassService} from '../../../../shared/services/character-class.service';
 import {NotifService} from '../../../../shared/services/notif.service';
-import {StatsEnum} from '../../../../shared/models/stats-enum.model';
+import {StatsEnum} from '../../../../shared/models/stats.enum';
 
 @Component({
   selector: 'app-class',

@@ -3,7 +3,7 @@ import {FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {NotifService} from '../../../../shared/services/notif.service';
 import {ModifierService} from '../../../../shared/services/modifier.service';
 import {RaceService} from '../../../../shared/services/race.service';
-import {StatsEnum} from '../../../../shared/models/stats-enum.model';
+import {StatsEnum} from '../../../../shared/models/stats.enum';
 import {Modifier} from '../../../../shared/models/stats-modifiers.model';
 
 @Component({

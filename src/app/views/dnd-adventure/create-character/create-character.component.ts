@@ -6,9 +6,9 @@ import {WizardComponent} from 'angular-archwizard';
 import {NotifService} from '../../../shared/services/notif.service';
 import {CharacterClassService} from '../../../shared/services/character-class.service';
 import {CharacterClass} from '../../../shared/models/character-class.model';
-import {StatsEnum} from '../../../shared/models/stats-enum.model';
+import {StatsEnum} from '../../../shared/models/stats.enum';
 import {RollDiceService} from '../../../shared/services/roll-dice.service';
-import {DiceTypeEnum} from '../../../shared/models/dice-type-enum.model';
+import {DiceTypeEnum} from '../../../shared/models/dice-type.enum';
 import {Modifier} from '../../../shared/models/stats-modifiers.model';
 
 @Component({

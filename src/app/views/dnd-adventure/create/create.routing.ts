@@ -5,6 +5,7 @@ import {CreateComponent} from './create.component';
 import {ModifierComponent} from './modifier/modifier.component';
 import {ClassComponent} from './class/class.component';
 import {WeaponComponent} from './weapon/weapon.component';
+import {SpellComponent} from './spell/spell.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
       {path: '', redirectTo: 'race', pathMatch: 'full'},
       {path: 'modifier', component: ModifierComponent},
       {path: 'race', component: RaceComponent},
-      {path: 'action', loadChildren: () => import('./actions/actions.module').then(m => m.ActionsModule)},
+      {path: 'spell', component: SpellComponent},
       {path: 'class', component: ClassComponent},
       {path: 'weapon', component: WeaponComponent}
     ]

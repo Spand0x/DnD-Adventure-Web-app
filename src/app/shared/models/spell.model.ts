@@ -1,18 +1,26 @@
-import {ActionTypeEnum} from './action-type-enum.model';
-import {DiceTypeEnum} from './dice-type-enum.model';
+import {DiceTypeEnum} from './dice-type.enum';
+import {StatsEnum} from './stats.enum';
+import {SpellCastingTypeEnum} from './spell-casting-type.enum';
+import {SpellDurationTypeEnum} from './spell-duration-type.enum';
+import {DurationUnitEnum} from './duration-unit.enum';
 
 export interface Spell {
   uuid: string;
-  type: ActionTypeEnum;
   name: string;
   description: string;
-  range: number;
+  level: number;
   damageDice: DiceTypeEnum;
-  damageBonus: number;
+  damageModifier: StatsEnum;
   hitChanceBonus: number;
   availableCharges: number;
   maxCharges: number;
-  unlockLevel: number;
   effect: string;
   notes: string;
+
+  // Self /Ranged 20ft
+  range: string;
+  castingType: SpellCastingTypeEnum;
+  durationType: SpellDurationTypeEnum;
+  duration: number;
+  durationUnit: DurationUnitEnum;
 }

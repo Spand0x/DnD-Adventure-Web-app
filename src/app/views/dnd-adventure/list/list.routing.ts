@@ -7,8 +7,6 @@ const routes: Routes = [
     path: '', component: ListComponent,
     children: [
       {path: '', redirectTo: 'action', pathMatch: 'full'},
-      {path: 'action', loadChildren: () => import('./actions/actions.module').then(m => m.ActionsModule)}
-
     ]
   }
 ];

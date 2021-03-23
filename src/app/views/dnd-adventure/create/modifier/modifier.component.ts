@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, FormGroupDirective, Validators} from '@angular/forms';
-import {StatsEnum} from '../../../../shared/models/stats-enum.model';
+import {StatsEnum} from '../../../../shared/models/stats.enum';
 import {ModifierService} from '../../../../shared/services/modifier.service';
 import {NotifService} from '../../../../shared/services/notif.service';
 

@@ -35,44 +35,31 @@ const data: IMenuItem[] = [
         label: 'menu.race',
         to: '/create/race'
       },
-      {
-        icon: 'simple-icon-briefcase',
-        label: 'menu.actions',
-        to: '/create/action',
-        subs: [
-          {
-            icon: 'simple-icon-briefcase',
-            label: 'menu.attack',
-            to: '/create/action/attack'
-          },
-          {
-            icon: 'simple-icon-briefcase',
-            label: 'menu.spell',
-            to: '/create/action/spell'
-          },
-          // {
-          //   icon: 'simple-icon-briefcase',
-          //   label: 'menu.action',
-          //   to: '/create/action/action'
-          // },
-          // {
-          //   icon: 'simple-icon-briefcase',
-          //   label: 'menu.bonus-action',
-          //   to: '/create/action/bonus'
-          // },
-          // {
-          //   icon: 'simple-icon-briefcase',
-          //   label: 'menu.other',
-          //   to: '/create/action/other'
-          // }
-        ]
-      },
+      // {
+      //   icon: 'simple-icon-briefcase',
+      //   label: 'menu.action',
+      //   to: '/create/action/action'
+      // },
+      // {
+      //   icon: 'simple-icon-briefcase',
+      //   label: 'menu.bonus-action',
+      //   to: '/create/action/bonus'
+      // },
+      // {
+      //   icon: 'simple-icon-briefcase',
+      //   label: 'menu.other',
+      //   to: '/create/action/other'
+      // }
       {
         icon: 'simple-icon-briefcase',
         label: 'menu.class',
         to: '/create/class'
       },
-
+      {
+        icon: 'simple-icon-briefcase',
+        label: 'menu.spell',
+        to: '/create/spell'
+      },
       {
         icon: 'simple-icon-briefcase',
         label: 'menu.weapon',

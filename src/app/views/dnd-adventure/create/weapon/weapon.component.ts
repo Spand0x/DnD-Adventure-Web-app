@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {DiceTypeEnum} from '../../../../shared/models/dice-type-enum.model';
-import {RarityEnum} from '../../../../shared/models/rarity-enum.model';
+import {DiceTypeEnum} from '../../../../shared/models/dice-type.enum';
+import {RarityEnum} from '../../../../shared/models/rarity.enum';
 import {ItemService} from '../../../../shared/services/item.service';
 import {NotifService} from '../../../../shared/services/notif.service';
 

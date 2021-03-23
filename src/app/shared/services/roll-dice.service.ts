@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {DiceTypeEnum} from '../models/dice-type-enum.model';
+import {DiceTypeEnum} from '../models/dice-type.enum';
 
 @Injectable({
   providedIn: 'root'

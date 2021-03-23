@@ -1,5 +1,5 @@
-import {RarityEnum} from './rarity-enum.model';
-import {DiceTypeEnum} from './dice-type-enum.model';
+import {RarityEnum} from './rarity.enum';
+import {DiceTypeEnum} from './dice-type.enum';
 
 export interface Weapon {
   uuid: string;
