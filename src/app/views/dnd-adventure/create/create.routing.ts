@@ -4,6 +4,7 @@ import {RaceComponent} from './race/race.component';
 import {CreateComponent} from './create.component';
 import {ModifierComponent} from './modifier/modifier.component';
 import {ClassComponent} from './class/class.component';
+import {WeaponComponent} from './weapon/weapon.component';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
       {path: 'modifier', component: ModifierComponent},
       {path: 'race', component: RaceComponent},
       {path: 'action', loadChildren: () => import('./actions/actions.module').then(m => m.ActionsModule)},
-      {path: 'class', component: ClassComponent}
+      {path: 'class', component: ClassComponent},
+      {path: 'weapon', component: WeaponComponent}
     ]
   }
 ];

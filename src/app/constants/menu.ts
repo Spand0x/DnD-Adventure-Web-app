@@ -71,6 +71,12 @@ const data: IMenuItem[] = [
         icon: 'simple-icon-briefcase',
         label: 'menu.class',
         to: '/create/class'
+      },
+
+      {
+        icon: 'simple-icon-briefcase',
+        label: 'menu.weapon',
+        to: '/create/weapon'
       }
     ]
   },

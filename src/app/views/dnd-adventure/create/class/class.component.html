@@ -4,7 +4,7 @@
       <div class="row justify-content-center ">
         <div class="card-body col-6 ">
           <h5 class="mb-4 text-center">Class</h5>
-          <form [formGroup]="classForm" #form="ngForm" (ngSubmit)="onSubmit()" novalidate class="tooltip-label-right">
+          <form [formGroup]="classForm" #form="ngForm" (ngSubmit)="onSubmit()" novalidate class="tooltip-center-top">
             <div class="form-group">
               <label for="name">{{ 'forms.name' | translate }}</label>
               <input type="text" class="form-control" formControlName="name" id="name">

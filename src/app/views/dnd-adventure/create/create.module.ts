@@ -13,11 +13,12 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
 import {NotifService} from '../../../shared/services/notif.service';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import { ClassComponent } from './class/class.component';
+import { WeaponComponent } from './weapon/weapon.component';
 
 
 
 @NgModule({
-  declarations: [CreateComponent, RaceComponent, ModifierComponent, ClassComponent],
+  declarations: [CreateComponent, RaceComponent, ModifierComponent, ClassComponent, WeaponComponent],
   imports: [
     CommonModule,
     LayoutContainersModule,
