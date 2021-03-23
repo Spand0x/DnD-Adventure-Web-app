@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DiceTypeEnum} from '../../../../shared/models/dice-type-enum.model';
 import {CharacterClassService} from '../../../../shared/services/character-class.service';
 import {NotifService} from '../../../../shared/services/notif.service';
+import {StatsEnum} from '../../../../shared/models/stats-enum.model';
 
 @Component({
   selector: 'app-class',
@@ -13,6 +14,7 @@ export class ClassComponent implements OnInit {
 
   classForm: FormGroup;
   dices = Object.keys(DiceTypeEnum);
+  stats = Object.keys(StatsEnum);
   hpDice: string;
   hpNumber: number;
 
@@ -24,7 +26,9 @@ export class ClassComponent implements OnInit {
     this.classForm = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       description: new FormControl(null, [Validators.required, Validators.minLength(5)]),
-      hitPointsDice: new FormControl(null, [Validators.required])
+      hitPointsDice: new FormControl(null, [Validators.required]),
+      primaryStat: new FormControl(null, [Validators.required]),
+      savingThrowStat: new FormControl(null, [Validators.required])
     });
   }
 

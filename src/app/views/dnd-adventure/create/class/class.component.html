@@ -19,6 +19,18 @@
               </div>
             </div>
             <div class="form-group">
+              <label for="primaryStat">Primary Stat</label>
+              <ng-select [items]="stats" formControlName="primaryStat" id="primaryStat">
+              </ng-select>
+              <div *ngIf="classForm.get('primaryStat').errors?.required && form.submitted" class="invalid-tooltip">Primary stat is required</div>
+            </div>
+            <div class="form-group">
+              <label for="savingThrowStat">Saving Throw Stat</label>
+              <ng-select [items]="stats" formControlName="savingThrowStat" id="savingThrowStat">
+              </ng-select>
+              <div *ngIf="classForm.get('savingThrowStat').errors?.required && form.submitted" class="invalid-tooltip">Saving throw stat is required</div>
+            </div>
+            <div class="form-group">
               <label for="hitPointsDice">Dice for HP</label>
               <ng-select [items]="dices" formControlName="hitPointsDice" id="hitPointsDice" (change)="changeHpDice($event)">
               </ng-select>

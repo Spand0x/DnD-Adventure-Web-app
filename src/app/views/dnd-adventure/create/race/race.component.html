@@ -20,7 +20,7 @@
             <label>Advantages:</label>
             <accordion [closeOthers]="false" [isAnimated]="true">
               <accordion-group *ngFor="let advantage of raceForm.get('advantages')['controls']; let i = index"
-                               [panelClass]="'border'">
+                               [panelClass]="'border'" [isOpen]="true">
                 <div accordion-heading>
                   <div class="row">Advantage {{i + 1}}
                     <div class="ml-auto mr-3">
@@ -53,7 +53,7 @@
             <label>Disadvantages:</label>
             <accordion [closeOthers]="false" [isAnimated]="true">
               <accordion-group *ngFor="let disadvantage of raceForm.get('disadvantages')['controls']; let i = index"
-                               [panelClass]="'border'">
+                               [panelClass]="'border'" [isOpen]="true">
                 <div accordion-heading>
                   <div class="row">Disadvantage {{i + 1}}
                     <div class="ml-auto mr-3">

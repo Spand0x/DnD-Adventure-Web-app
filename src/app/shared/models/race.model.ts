@@ -1,5 +1,5 @@
 import {Modifier} from './stats-modifiers.model';
-import {BaseRaceTraits} from './baseRaceTraits.model';
+import {BaseRaceTraits} from './base-race-traits.model';
 
 export interface Race {
   uuid: string;

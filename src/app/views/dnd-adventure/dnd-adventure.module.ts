@@ -6,11 +6,12 @@ import {SharedModule} from 'src/app/shared/shared.module';
 import {LayoutContainersModule} from 'src/app/containers/layout/layout.containers.module';
 import {CreateCharacterComponent} from './create-character/create-character.component';
 import {TabsModule} from 'ngx-bootstrap/tabs';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {ArchwizardModule} from 'angular-archwizard';
 import {NotifService} from '../../shared/services/notif.service';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -27,6 +28,8 @@ import {NotifService} from '../../shared/services/notif.service';
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
     ArchwizardModule,
+    NgSelectModule,
+    FormsModule,
   ],
   providers: [
     NotifService
