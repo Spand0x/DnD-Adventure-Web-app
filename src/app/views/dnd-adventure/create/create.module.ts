@@ -7,7 +7,7 @@ import {RaceComponent} from './race/race.component';
 import {CreateRoutingModule} from './create.routing';
 import {ModifierComponent} from './modifier/modifier.component';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgSelectModule} from '@ng-select/ng-select';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {NotifService} from '../../../shared/services/notif.service';
@@ -15,6 +15,9 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {ClassComponent} from './class/class.component';
 import {WeaponComponent} from './weapon/weapon.component';
 import {SpellComponent} from './spell/spell.component';
+import {ButtonsModule} from 'ngx-bootstrap/buttons';
+import { SpellDescriptionComponent } from './weapon/spell-description/spell-description.component';
+import {BsModalService} from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -24,7 +27,8 @@ import {SpellComponent} from './spell/spell.component';
     ModifierComponent,
     ClassComponent,
     WeaponComponent,
-    SpellComponent
+    SpellComponent,
+    SpellDescriptionComponent
   ],
   imports: [
     CommonModule,
@@ -35,10 +39,12 @@ import {SpellComponent} from './spell/spell.component';
     ReactiveFormsModule,
     NgSelectModule,
     SimpleNotificationsModule.forRoot(),
-    AccordionModule
+    AccordionModule,
+    FormsModule,
   ],
   providers: [
-    NotifService
+    NotifService,
+    BsModalService
   ]
 })
 export class CreateModule {

@@ -1,0 +1,44 @@
+<div *ngIf="!spell" class="loading"></div>
+<div *ngIf="spell">
+  <div class="modal-body">
+    <h2 class="modal-title text-center font-weight-bolder">{{spell.name}}</h2>
+    <div class="separator mt-3 mb-3"></div>
+    <div class="modal-content">
+      <h3 class="font-weight-bold ">{{spell.description}}</h3>
+      <div class="separator mb-2 mt-1"></div>
+      <div class="row mb-3">
+        <h5 class="col"><span class="font-weight-bold">Level:</span> {{spell.level}}</h5>
+      </div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Damage Dice:</span> {{spell.damageDice}}</div>
+        <div class="col"><span class="font-weight-bold">Damage Modifier:</span> {{spell.damageModifier}}</div>
+      </div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Hit Chance Bonus:</span> {{spell.hitChanceBonus}}</div>
+        <div class="col"><span class="font-weight-bold">Max Charges:</span>{{spell.maxCharges}}</div>
+      </div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Effect:</span> {{spell.effect}}</div>
+        <div class="col"><span class="font-weight-bold">Range:</span> {{spell.range}}</div>
+      </div>
+      <div class="separator mb-2"></div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Casting Type:</span> {{spell.castingType}}</div>
+      </div>
+      <div class="row mb-2 border-primary">
+        <div class="col"><span class="font-weight-bold">Duration Type:</span> {{spell.durationType}}</div>
+        <div  class="col" *ngIf="spell.durationType.toString() === 'TIME'">
+          <div><span class="font-weight-bold">Duration:</span> {{spell.duration}}&nbsp;{{spell.durationUnit}}</div>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Notes:</span> {{spell.notes}}</div>
+      </div>
+      <div class="mt-3 justify-content-end">
+        <button type="button" class="btn btn-primary"
+                (click)="bsModalRef.hide()">Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

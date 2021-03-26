@@ -8,11 +8,11 @@
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" class="form-control" formControlName="name" id="name">
-              <div *ngIf="weaponForm.get('name').errors?.required && form.submitted" class="invalid-tooltip">Stat is required</div>
+              <div *ngIf="weaponForm.get('name').errors?.required && form.submitted" class="invalid-tooltip">Name is required</div>
             </div>
             <div class="form-group">
-              <label for="dis-description">Description</label>
-              <textarea class="form-control" rows="4" formControlName="description" id="dis-description"></textarea>
+              <label for="description">Description</label>
+              <textarea class="form-control" rows="4" formControlName="description" id="description"></textarea>
               <div *ngIf="weaponForm.get('description').errors?.required && form.submitted" class="invalid-tooltip">Description is required!</div>
               <div *ngIf="weaponForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Description must contain at least 5
                 characters!
@@ -22,7 +22,7 @@
               <label for="gold">Gold</label>
               <input type="number" class="form-control" formControlName="gold" id="gold">
               <div *ngIf="weaponForm.get('gold').errors?.required && form.submitted" class="invalid-tooltip">Gold is required</div>
-              <div *ngIf="weaponForm.get('gold').errors && form.submitted" class="invalid-tooltip">Gold should be a positive number</div>
+              <div *ngIf="weaponForm.get('gold').errors && form.submitted" class="invalid-tooltip">Gold should be zero or positive number</div>
             </div>
             <div class="form-group">
               <label for="quantity">Quantity</label>
@@ -47,19 +47,47 @@
               <div *ngIf="weaponForm.get('attackType').errors?.required && form.submitted" class="invalid-tooltip">Attack Type is required</div>
             </div>
             <div class="form-group">
-              <label for="diceDamage">Dice for damage</label>
-              <ng-select [items]="dices" formControlName="diceDamage" id="diceDamage">
+              <label for="damageDice">Damage Dice</label>
+              <ng-select [items]="dices" formControlName="damageDice" id="damageDice">
               </ng-select>
-              <div *ngIf="weaponForm.get('diceDamage').errors?.required && form.submitted" class="invalid-tooltip">Dice damage is required</div>
+              <div *ngIf="weaponForm.get('damageDice').errors?.required && form.submitted" class="invalid-tooltip">Damage Dice is required</div>
             </div>
             <div class="form-group">
-              <label for="bonusDamage">Bonus Damage</label>
-              <input type="number" class="form-control" formControlName="bonusDamage" id="bonusDamage">
-              <div *ngIf="weaponForm.get('bonusDamage').errors?.required && form.submitted" class="invalid-tooltip">Bonus Damage is required</div>
-              <div *ngIf="weaponForm.get('bonusDamage').errors && form.submitted" class="invalid-tooltip">Bonus Damage should be between 0 and 10</div>
+              <label for="damageModifier">Damage Modifier</label>
+              <ng-select [items]="stats" formControlName="damageModifier" id="damageModifier"></ng-select>
+            </div>
+            <div class="form-group">
+              <label for="hitChanceBonus">Hit Chance Bonus</label>
+              <input type="number" class="form-control" formControlName="hitChanceBonus" id="hitChanceBonus">
+            </div>
+            <div *ngIf="!isSpellRequired">
+              <button type="button" class="btn btn-primary"
+                      (click)="getSpells()">Add Spell
+              </button>
+            </div>
+            <div *ngIf="isSpellRequired" class="mb-3 mt-3">
+              <div *ngIf="!spellNames" class="loading"></div>
+              <div *ngIf="spellNames">
+                <label for="spell">Select Spell</label>
+                <ng-select [items]="spellNames"
+                           [(ngModel)]="selectedSpellUuid"
+                           formControlName="spell"
+                           bindValue="uuid"
+                           bindLabel="name"
+                           id="spell">
+                </ng-select>
+              </div>
+              <div class="justify-content-between row ml-1 mr-1 mt-3">
+                <div>
+                  <button *ngIf="selectedSpellUuid" type="button" class="btn btn-primary" (click)="openModal()">Description</button>
+                </div>
+                <div class="text-right">
+                  <button type="button" class="btn btn-primary" (click)="removeSpell()">Remove Spell</button>
+                </div>
+              </div>
             </div>
             <div class="d-flex justify-content-end">
-              <button class="btn btn-primary" type="submit">{{ 'forms.submit' | translate }}</button>
+              <button class="btn btn-primary" type="submit">Submit</button>
             </div>
           </form>
         </div>

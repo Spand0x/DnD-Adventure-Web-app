@@ -34,9 +34,9 @@ export class SpellComponent implements OnInit {
       name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       description: new FormControl(null, [Validators.required, Validators.minLength(5)]),
       level: new FormControl(1, [Validators.required, Validators.min(1)]),
-      damageDice: new FormControl(null, [Validators.required]),
-      damageModifier: new FormControl(null, [Validators.required, Validators.pattern('[A-Z]{3}')]),
-      hitChanceBonus: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(10)]),
+      damageDice: new FormControl(null ),
+      damageModifier: new FormControl(null),
+      hitChanceBonus: new FormControl(0),
       maxCharges: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(10)]),
       effect: new FormControl(null),
       notes: new FormControl(null),
@@ -68,5 +68,4 @@ export class SpellComponent implements OnInit {
         }, error => this.notificationService.errorNotification(error));
     }
   }
-
 }
