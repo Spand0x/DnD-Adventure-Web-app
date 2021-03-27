@@ -6,12 +6,14 @@ import {ModifierComponent} from './modifier/modifier.component';
 import {ClassComponent} from './class/class.component';
 import {WeaponComponent} from './weapon/weapon.component';
 import {SpellComponent} from './spell/spell.component';
+import {CharacterComponent} from './character/character.component';
 
 const routes: Routes = [
   {
     path: '', component: CreateComponent,
     children: [
-      {path: '', redirectTo: 'race', pathMatch: 'full'},
+      {path: '', redirectTo: 'character', pathMatch: 'full'},
+      {path: 'character', component: CharacterComponent},
       {path: 'modifier', component: ModifierComponent},
       {path: 'race', component: RaceComponent},
       {path: 'spell', component: SpellComponent},

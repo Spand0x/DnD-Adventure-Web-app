@@ -18,7 +18,7 @@ const data: IMenuItem[] = [
     id: 'create-character',
     icon: 'iconsminds-three-arrow-fork',
     label: 'menu.create-character',
-    to: '/create-character',
+    to: '/create/character',
   },
   {
     id: 'create',

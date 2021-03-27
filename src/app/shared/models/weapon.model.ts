@@ -10,7 +10,7 @@ export interface Weapon {
   gold: number;
   quantity: number;
   rarity: RarityEnum;
-  spell: Spell;
+  spell: Spell | string;
   weaponType: string;
   attackType: string;
   damageDice: DiceTypeEnum;

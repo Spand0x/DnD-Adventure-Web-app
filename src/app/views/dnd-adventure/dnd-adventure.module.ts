@@ -4,20 +4,18 @@ import {DndAdventureComponent} from './dnd-adventure.component';
 import {DndAdventureRoutingModule} from './dnd-adventure.routing';
 import {SharedModule} from 'src/app/shared/shared.module';
 import {LayoutContainersModule} from 'src/app/containers/layout/layout.containers.module';
-import {CreateCharacterComponent} from './create-character/create-character.component';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {SimpleNotificationsModule} from 'angular2-notifications';
-import {ArchwizardModule} from 'angular-archwizard';
 import {NotifService} from '../../shared/services/notif.service';
 import {NgSelectModule} from '@ng-select/ng-select';
 
 
 @NgModule({
   declarations: [
-    DndAdventureComponent,
-    CreateCharacterComponent],
+    DndAdventureComponent
+  ],
   imports: [
     CommonModule,
     DndAdventureRoutingModule,
@@ -27,7 +25,6 @@ import {NgSelectModule} from '@ng-select/ng-select';
     SimpleNotificationsModule.forRoot(),
     TabsModule.forRoot(),
     AccordionModule.forRoot(),
-    ArchwizardModule,
     NgSelectModule,
     FormsModule,
   ],

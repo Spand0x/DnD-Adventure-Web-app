@@ -1,0 +1,37 @@
+<div *ngIf="!weapon" class="loading"></div>
+<div *ngIf="weapon">
+  <div class="modal-body">
+    <h2 class="modal-title text-center font-weight-bolder">{{weapon.name}}</h2>
+    <div class="separator mt-3 mb-3"></div>
+    <div class="modal-content">
+      <h3 class="font-weight-bold ">{{weapon.description}}</h3>
+      <div class="separator mb-2 mt-1"></div>
+      <div class="row mb-3">
+        <h6 class="col"><span class="font-weight-bold">Rarity:</span> {{weapon.rarity}}</h6>
+      </div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Damage Dice:</span> {{weapon.damageDice}}</div>
+        <div class="col"><span class="font-weight-bold">Damage Modifier:</span> {{weapon.damageModifier}}</div>
+      </div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Hit Chance Bonus:</span> {{weapon.hitChanceBonus}}</div>
+        <div class="col"><span class="font-weight-bold">Spell Name:</span> {{weapon.spell}}</div>
+      </div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Weapon Type:</span> {{weapon.weaponType}}</div>
+        <div class="col"><span class="font-weight-bold">Attack Type:</span> {{weapon.attackType}}</div>
+      </div>
+      <div class="separator mb-2"></div>
+      <div class="row mb-2">
+        <div class="col"><span class="font-weight-bold">Quantity:</span> {{weapon.quantity}}</div>
+        <div class="col"><span class="font-weight-bold">Gold:</span> {{weapon.gold}}</div>
+      </div>
+
+      <div class="mt-3 justify-content-end">
+        <button type="button" class="btn btn-primary"
+                (click)="bsModalRef.hide()">Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

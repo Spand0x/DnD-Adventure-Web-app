@@ -1,0 +1,60 @@
+<div class="card mb-5">
+  <div class="card-body">
+    <aw-wizard #wizard>
+
+      <aw-wizard-step stepTitle="General" style="min-height: 120px;">
+        <app-general-step (generalDescription)="selectGeneral($event)"></app-general-step>
+      </aw-wizard-step>
+
+      <aw-wizard-step stepTitle="Race" style="min-height: 120px;">
+        <app-race-step (race)="selectRace($event)"></app-race-step>
+        <div class="row justify-content-center mt-2">
+          <div class="col-lg-8 col-xs-12">
+            <button type="button" class="btn btn-primary" awPreviousStep>Back</button>
+          </div>
+        </div>
+      </aw-wizard-step>
+
+      <aw-wizard-step stepTitle="Class" style="min-height: 120px;">
+        <app-class-step (characterClass)="selectClass($event)"></app-class-step>
+        <div class="row justify-content-center mt-2">
+          <div class="col-lg-8 col-xs-12">
+            <button type="button" class="btn btn-primary" awPreviousStep>Back</button>
+          </div>
+        </div>
+      </aw-wizard-step>
+
+      <aw-wizard-step stepTitle="Stats" style="min-height: 120px;">
+        <div *ngIf="selectedRace">
+          <app-stats-step (statsResult)="selectStats($event)" [race]="selectedRace"></app-stats-step>
+        </div>
+        <div class="row justify-content-center mt-2">
+          <div class="col-lg-8 col-xs-12">
+            <button type="button" class="btn btn-primary" awPreviousStep>Back</button>
+          </div>
+        </div>
+      </aw-wizard-step>
+
+      <aw-wizard-step stepTitle="Weapons" style="min-height: 120px;">
+        <div *ngIf="isWeaponsStep">
+          <app-weapon-step (back)="goBack()" (submitWeapons)="selectWeapons($event)"></app-weapon-step>
+        </div>
+      </aw-wizard-step>
+
+      <aw-wizard-completion-step stepTitle="Done" style="min-height: 120px;">
+        <div class="text-center complete-message-centered">
+          <!--          <div *ngIf="posting">-->
+          <!--            <div class="spinner-border text-primary" role="status">-->
+          <!--            </div>-->
+          <!--            <div class="mt-3">{{ 'wizard.saving' | translate }}</div>-->
+          <!--          </div>-->
+          <!--          <div *ngIf="!posting">-->
+          <h2 class="mb-2">Thanks</h2>
+          <p>Registred</p>
+          <!--          </div>-->
+        </div>
+      </aw-wizard-completion-step>
+
+    </aw-wizard>
+  </div>
+</div>

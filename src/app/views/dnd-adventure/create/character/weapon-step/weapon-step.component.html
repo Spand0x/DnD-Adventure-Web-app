@@ -1,0 +1,54 @@
+<app-weapons-header (weaponsPerPageChange)="itemsPerPageChange($event)"
+                    (searchWeaponsByKey)="searchItemByKeyUp($event)"
+                    [weaponsPerPage]="weaponsPerPage"
+></app-weapons-header>
+<div class="loading" *ngIf="isLoading"></div>
+<div class="row" *ngIf="!isLoading">
+  <div class="col-12 list">
+    <div class="card d-flex flex-row mb-3" *ngFor="let item of weapons; let i=index">
+      <div class="d-flex flex-grow-1 min-width-zero">
+        <div
+          class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+          <a class="list-item-heading mb-0 truncate w-30 w-xs-100" href="javascript:;">
+            {{item.name}}
+          </a>
+          <p class="mb-0 text-muted font-weight-bold w-15 w-xs-100">{{item.damageDice}}&nbsp;
+            {{getStatsEnum()[item.damageModifier] ? ('+ ' + getStatsEnum()[item.damageModifier]) : ''}}</p>
+          <p class="mb-0 w-15 w-xs-100">{{item.weaponType}}</p>
+          <div class="w-15 w-xs-100">
+            <span>{{item.rarity}}</span>
+          </div>
+          <div class="mb-0 w-xs-100">
+            <button type="button" class="btn btn-primary" (click)="openDescription(item)">Description</button>
+          </div>
+        </div>
+        <label class="custom-control custom-checkbox mb-1 align-self-center pr-4">
+          <input type="checkbox" class="custom-control-input" [id]="'customCheck'+i" [checked]="isSelected(item)"
+                 (change)="onSelect(item)">
+          <label class="custom-control-label" [for]="'customCheck'+i"></label>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <pagination [totalItems]="totalWeapons" [itemsPerPage]="weaponsPerPage" [rotate]="true" [maxSize]="5"
+                [(ngModel)]="currentPage" (pageChanged)="changePage($event)" class="justify-content-center"
+                [customNextTemplate]="nextTemplate" [customPreviousTemplate]="prevTemplate">
+    </pagination>
+  </div>
+</div>
+<div class="row justify-content-between mt-2 ml-1 mr-1">
+  <div>
+    <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary" (click)="selectWeapons()">Add Items</button>
+  </div>
+</div>
+
+<ng-template #nextTemplate let-disabled="disabled" let-currentPage="currentPage">
+  <i class='simple-icon-arrow-right'></i>
+</ng-template>
+<ng-template #prevTemplate let-disabled="disabled" let-currentPage="currentPage">
+  <i class='simple-icon-arrow-left'></i>
+</ng-template>

@@ -1,0 +1,24 @@
+<div class="row mr-0 mb-3">
+  <div class="col-12">
+    <div class="d-inline-block">
+      <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
+        <input class="form-control" placeholder="Search" (keyup)="onSearchKeyUp($event)">
+      </div>
+    </div>
+    <div class="float-right">
+      <span class="text-muted text-small">Per Page&nbsp;</span>
+      <span dropdown class="d-inline-block position-relative">
+        <button class="btn btn-outline-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" dropdownToggle>
+          {{weaponsPerPage}}
+        </button>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-sm text-right" *dropdownMenu>
+          <li role="menuitem" *ngFor="let number of weaponsOptionsPerPage">
+            <a [ngClass]="number === weaponsPerPage ? 'dropdown-item active' : 'dropdown-item'"
+               (click)="onChangeWeaponsPerPage(number)">{{number}}</a>
+          </li>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>

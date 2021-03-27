@@ -15,9 +15,19 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {ClassComponent} from './class/class.component';
 import {WeaponComponent} from './weapon/weapon.component';
 import {SpellComponent} from './spell/spell.component';
-import {ButtonsModule} from 'ngx-bootstrap/buttons';
-import { SpellDescriptionComponent } from './weapon/spell-description/spell-description.component';
+import {SpellDescriptionComponent} from './weapon/spell-description/spell-description.component';
 import {BsModalService} from 'ngx-bootstrap/modal';
+import {CharacterComponent} from './character/character.component';
+import {GeneralStepComponent} from './character/general-step/general-step.component';
+import {ArchwizardModule} from 'angular-archwizard';
+import { RaceStepComponent } from './character/race-step/race-step.component';
+import { ClassStepComponent } from './character/class-step/class-step.component';
+import { StatsStepComponent } from './character/stats-step/stats-step.component';
+import { WeaponStepComponent } from './character/weapon-step/weapon-step.component';
+import { WeaponsHeaderComponent } from './character/weapon-step/weapons-header/weapons-header.component';
+import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import {PaginationConfig, PaginationModule} from 'ngx-bootstrap/pagination';
+import { WeaponDescriptionComponent } from './character/weapon-step/weapon-description/weapon-description.component';
 
 
 @NgModule({
@@ -28,7 +38,15 @@ import {BsModalService} from 'ngx-bootstrap/modal';
     ClassComponent,
     WeaponComponent,
     SpellComponent,
-    SpellDescriptionComponent
+    SpellDescriptionComponent,
+    CharacterComponent,
+    GeneralStepComponent,
+    RaceStepComponent,
+    ClassStepComponent,
+    StatsStepComponent,
+    WeaponStepComponent,
+    WeaponsHeaderComponent,
+    WeaponDescriptionComponent
   ],
   imports: [
     CommonModule,
@@ -41,10 +59,14 @@ import {BsModalService} from 'ngx-bootstrap/modal';
     SimpleNotificationsModule.forRoot(),
     AccordionModule,
     FormsModule,
+    ArchwizardModule,
+    BsDropdownModule,
+    PaginationModule.forRoot()
   ],
   providers: [
     NotifService,
-    BsModalService
+    BsModalService,
+    PaginationConfig
   ]
 })
 export class CreateModule {

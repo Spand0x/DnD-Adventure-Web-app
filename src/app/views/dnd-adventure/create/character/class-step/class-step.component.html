@@ -1,0 +1,34 @@
+<div class="loading" *ngIf="isLoading"></div>
+<div class="row justify-content-center text-center">
+  <div class="col-lg-8 col-xs-12" *ngIf="!isLoading">
+    <h1>Chose Class</h1>
+    <br>
+    <accordion [isAnimated]="true" [closeOthers]="true">
+      <accordion-group [panelClass]="'border'" [isOpen]="false"
+                       *ngFor="let charClass of classes" (isOpenChange)="setIsExpanded($event, charClass)">
+        <div accordion-heading>
+          <div class="row">
+            <i [class]="'mt-2 simple-icon-arrow-' + (charClass.isExpanded ? 'down' : 'right')"> </i>
+            <span class="ml-2 mt-1 font-weight-bold">{{charClass.name.toUpperCase()}}</span>
+            <div class="ml-auto mr-3">
+              <button type="button" class="btn btn-primary btn-shadow p-2" (click)="selectClass(charClass)">Select</button>
+            </div>
+          </div>
+        </div>
+        <div class="text-left">
+          <h5 class="text-left mb-4">{{charClass.description}}</h5>
+        </div>
+        <div class="separator"></div>
+        <div class="mb-3 mt-3 text-left">
+          <p><strong>Hit Dice:</strong>&nbsp;1{{charClass.hitPointsDice}} per level<br>
+            <strong>Hit Dice at 1st Level:</strong>&nbsp;{{hitPointsDiceNumber(charClass)}} + your Constitution modifier<br>
+            <strong>Hit Dice at Higher Levels:</strong>&nbsp;1{{charClass.hitPointsDice}} (or 5) + your Constitution modifier per level after 1st</p>
+        </div>
+        <div class="separator"></div>
+        <div class="mb-5 mt-3 text-left">
+          <p><strong>Saving Throw Stat:</strong>&nbsp;{{charClass.savingThrowStat}}</p>
+        </div>
+      </accordion-group>
+    </accordion>
+  </div>
+</div>

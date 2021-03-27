@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {DiceTypeEnum} from '../../../../shared/models/dice-type.enum';
 import {RarityEnum} from '../../../../shared/models/rarity.enum';
-import {ItemService} from '../../../../shared/services/item.service';
+import {WeaponService} from '../../../../shared/services/weapon.service';
 import {NotifService} from '../../../../shared/services/notif.service';
 import {SpellService} from '../../../../shared/services/spell.service';
 import {SpellName} from '../../../../shared/models/spell-name.model';
@@ -26,7 +26,7 @@ export class WeaponComponent implements OnInit {
   spellNames: SpellName[];
   selectedSpellUuid: string;
 
-  constructor(private itemService: ItemService,
+  constructor(private itemService: WeaponService,
               private spellService: SpellService,
               private notifService: NotifService,
               private modalService: BsModalService) {

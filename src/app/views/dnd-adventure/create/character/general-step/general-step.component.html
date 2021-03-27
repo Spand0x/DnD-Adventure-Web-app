@@ -1,0 +1,18 @@
+<div class="row justify-content-center">
+  <div class="col-lg-8 col-xs-12">
+    <form [formGroup]="generalForm" #form="ngForm" (ngSubmit)="submit()" novalidate class="tooltip-center-top">
+      <div class="form-group ">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name" id="name">
+        <div *ngIf="generalForm.get('name').errors?.required && form.submitted" class="invalid-tooltip">Name is required!</div>
+      </div>
+      <div class="form-group">
+        <label for="dis-description">Description</label>
+        <textarea class="form-control" rows="4" formControlName="description" id="dis-description"></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Select Race</button>
+      </div>
+    </form>
+  </div>
+</div>
