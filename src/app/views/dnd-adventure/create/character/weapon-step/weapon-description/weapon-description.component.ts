@@ -5,7 +5,6 @@ import {BsModalRef} from 'ngx-bootstrap/modal';
 @Component({
   selector: 'app-weapon-description',
   templateUrl: './weapon-description.component.html',
-  styleUrls: ['./weapon-description.component.scss']
 })
 export class WeaponDescriptionComponent implements OnInit {
 

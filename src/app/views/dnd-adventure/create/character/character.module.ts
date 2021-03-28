@@ -18,6 +18,9 @@ import {PaginationModule} from 'ngx-bootstrap/pagination';
 import {NotifService} from '../../../../shared/services/notif.service';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {CharacterRoutingModule} from './character.routing';
+import { SpellStepComponent } from './spell-step/spell-step.component';
+import { SpellsHeaderComponent } from './spell-step/spells-header/spells-header.component';
+import { SpellDescriptionComponent } from './spell-step/spell-description/spell-description.component';
 
 
 @NgModule({
@@ -28,7 +31,10 @@ import {CharacterRoutingModule} from './character.routing';
     StatsStepComponent,
     WeaponStepComponent,
     WeaponsHeaderComponent,
-    WeaponDescriptionComponent],
+    WeaponDescriptionComponent,
+    SpellStepComponent,
+    SpellsHeaderComponent,
+    SpellDescriptionComponent],
   imports: [
     CommonModule,
     SharedModule,

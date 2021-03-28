@@ -28,4 +28,8 @@ export class SpellService {
   getById(uuid: string): Observable<Spell> {
     return this.http.get<Spell>(`${this.url}/${uuid}`);
   }
+
+  getAllPaginated(searchValue: string, pageNumber: number, pageSize: number): Observable<any> {
+    return this.http.get(`${this.url}/all?search=${searchValue}&page=${pageNumber}&size=${pageSize}`);
+  }
 }

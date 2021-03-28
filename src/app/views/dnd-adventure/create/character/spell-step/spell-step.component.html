@@ -1,37 +1,37 @@
-<app-weapons-header (weaponsPerPageChange)="weaponsPerPageChange($event)"
-                    (searchWeaponsByKey)="searchWeaponByKeyUp($event)"
-                    [weaponsPerPage]="weaponsPerPage"
-></app-weapons-header>
+<app-spells-header (spellsPerPageChange)="itemsPerPageChange($event)"
+                    (searchSpellsByKey)="searchItemByKeyUp($event)"
+                    [spellsPerPage]="spellsPerPage"
+></app-spells-header>
 <div class="loading" *ngIf="isLoading"></div>
 <div class="row" *ngIf="!isLoading">
   <div class="col-12 list">
-    <div class="card d-flex flex-row mb-3" *ngFor="let weapon of weapons; let i=index">
+    <div class="card d-flex flex-row mb-3" *ngFor="let spell of spells; let i=index">
       <div class="d-flex flex-grow-1 min-width-zero">
         <div
           class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
           <a class="list-item-heading mb-0 truncate w-30 w-xs-100" href="javascript:;">
-            {{weapon.name}}
+            {{spell.name}}
           </a>
-          <p class="mb-0 text-muted font-weight-bold w-15 w-xs-100">{{weapon.damageDice}}&nbsp;
-            {{getStatsEnum()[weapon.damageModifier] ? ('+ ' + getStatsEnum()[weapon.damageModifier]) : ''}}</p>
-          <p class="mb-0 w-15 w-xs-100">{{weapon.weaponType}}</p>
+          <p class="mb-0 text-muted font-weight-bold w-15 w-xs-100">{{spell.damageDice}}&nbsp;
+            {{getStatsEnum()[spell.damageModifier] ? ('+ ' + getStatsEnum()[spell.damageModifier]) : ''}}</p>
+          <p class="mb-0 w-15 w-xs-100">{{spell.effect}}</p>
           <div class="w-15 w-xs-100">
-            <span>{{weapon.rarity}}</span>
+            <span>{{spell.range}}</span>
           </div>
           <div class="mb-0 w-xs-100">
-            <button type="button" class="btn btn-primary" (click)="openDescription(weapon)">Description</button>
+            <button type="button" class="btn btn-primary" (click)="openDescription(spell)">Description</button>
           </div>
         </div>
         <label class="custom-control custom-checkbox mb-1 align-self-center pr-4">
-          <input type="checkbox" class="custom-control-input" [id]="'customCheckWep'+i" [checked]="isSelected(weapon)"
-                 (change)="onSelect(weapon)">
-          <label class="custom-control-label" [for]="'customCheckWep'+i"></label>
+          <input type="checkbox" class="custom-control-input" [id]="'customCheckSpell'+i" [checked]="isSelected(spell)"
+                 (change)="onSelect(spell)">
+          <label class="custom-control-label" [for]="'customCheckSpell'+i"></label>
         </label>
       </div>
     </div>
   </div>
   <div class="col-12">
-    <pagination [totalItems]="totalWeapons" [itemsPerPage]="weaponsPerPage" [rotate]="true" [maxSize]="5"
+    <pagination [totalItems]="totalSpells" [itemsPerPage]="spellsPerPage" [rotate]="true" [maxSize]="5"
                 [(ngModel)]="currentPage" (pageChanged)="changePage($event)" class="justify-content-center"
                 [customNextTemplate]="nextTemplate" [customPreviousTemplate]="prevTemplate">
     </pagination>
@@ -42,7 +42,7 @@
     <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
   </div>
   <div>
-    <button type="button" class="btn btn-primary" (click)="selectWeapons()">Add Weapons</button>
+    <button type="button" class="btn btn-primary" (click)="selectSpells()">Add Spells</button>
   </div>
 </div>
 

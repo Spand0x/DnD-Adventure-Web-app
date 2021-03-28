@@ -41,17 +41,15 @@
         </div>
       </aw-wizard-step>
 
+      <aw-wizard-step stepTitle="Spells" style="min-height: 120px;">
+        <div *ngIf="isSpellStep">
+          <app-spell-step (back)="goBack()" (submitSpells)="selectSpells($event)"></app-spell-step>
+        </div>
+      </aw-wizard-step>
+
       <aw-wizard-completion-step stepTitle="Done" style="min-height: 120px;">
         <div class="text-center complete-message-centered">
-          <!--          <div *ngIf="posting">-->
-          <!--            <div class="spinner-border text-primary" role="status">-->
-          <!--            </div>-->
-          <!--            <div class="mt-3">{{ 'wizard.saving' | translate }}</div>-->
-          <!--          </div>-->
-          <!--          <div *ngIf="!posting">-->
-          <h2 class="mb-2">Thanks</h2>
-          <p>Registred</p>
-          <!--          </div>-->
+          <h2 class="mb-2">Character created successfully</h2>
         </div>
       </aw-wizard-completion-step>
 

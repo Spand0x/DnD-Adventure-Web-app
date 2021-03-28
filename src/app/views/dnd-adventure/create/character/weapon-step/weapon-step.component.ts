@@ -31,7 +31,7 @@ export class WeaponStepComponent implements OnInit {
   @Output() submitWeapons: EventEmitter<any> = new EventEmitter();
   @Output() back: EventEmitter<any> = new EventEmitter();
 
-  constructor(private itemService: WeaponService,
+  constructor(private weaponService: WeaponService,
               private notifService: NotifService,
               private modalService: BsModalService) {
   }
@@ -40,11 +40,11 @@ export class WeaponStepComponent implements OnInit {
     this.loadData(this.weaponsPerPage, this.currentPage, this.searchValue);
   }
 
-  loadData(itemsPerPage: number = 10, currentPage: number = 1, searchValue: string = '') {
+  loadData(weaponsPerPage: number = 10, currentPage: number = 1, searchValue: string = '') {
     this.searchValue = searchValue;
 
     this.isLoading = true;
-    this.itemService.getAllPaginated(searchValue, currentPage - 1, itemsPerPage)
+    this.weaponService.getAllPaginated(searchValue, currentPage - 1, weaponsPerPage)
       .subscribe(page => {
           this.currentPage = page.pageable.pageNumber + 1;
           this.weaponsPerPage = page.pageable.pageSize;
@@ -75,11 +75,11 @@ export class WeaponStepComponent implements OnInit {
     }
   }
 
-  itemsPerPageChange(perPage: number) {
+  weaponsPerPageChange(perPage: number) {
     this.loadData(perPage, 1, this.searchValue);
   }
 
-  searchItemByKeyUp($event: any) {
+  searchWeaponByKeyUp($event: any) {
     const searchValue: string = $event.target.value.toLowerCase().trim();
     this.loadData(this.weaponsPerPage, 1, searchValue);
   }

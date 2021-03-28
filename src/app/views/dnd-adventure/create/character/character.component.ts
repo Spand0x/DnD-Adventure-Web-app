@@ -5,6 +5,7 @@ import {NotifService} from '../../../../shared/services/notif.service';
 import {CharacterClass} from '../../../../shared/models/character-class.model';
 import {WeaponService} from '../../../../shared/services/weapon.service';
 import {Weapon} from '../../../../shared/models/weapon.model';
+import {Spell} from '../../../../shared/models/spell.model';
 
 @Component({
   selector: 'app-create-character',
@@ -18,9 +19,11 @@ export class CharacterComponent implements OnInit {
   selectedRace: Race;
   selectedClass: CharacterClass;
   selectedWeapons: Weapon[] = [];
+  selectedSpells: Spell[] = [];
   stats: any;
 
-  isWeaponsStep: boolean = false;
+  isWeaponsStep = false;
+  isSpellStep = false;
 
   constructor(private itemService: WeaponService,
               private notifService: NotifService) {
@@ -60,7 +63,12 @@ export class CharacterComponent implements OnInit {
 
   selectWeapons(weapons: Weapon[]) {
     this.selectedWeapons = weapons;
-    console.log(this.selectedWeapons);
+    this.isSpellStep = true;
+    this.wizard.goToNextStep();
+  }
+
+  selectSpells(spells: Spell[]) {
+    this.selectedSpells = spells;
     this.wizard.goToNextStep();
   }
 
