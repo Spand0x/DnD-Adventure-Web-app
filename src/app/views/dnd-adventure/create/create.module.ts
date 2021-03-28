@@ -17,17 +17,6 @@ import {WeaponComponent} from './weapon/weapon.component';
 import {SpellComponent} from './spell/spell.component';
 import {SpellDescriptionComponent} from './weapon/spell-description/spell-description.component';
 import {BsModalService} from 'ngx-bootstrap/modal';
-import {CharacterComponent} from './character/character.component';
-import {GeneralStepComponent} from './character/general-step/general-step.component';
-import {ArchwizardModule} from 'angular-archwizard';
-import { RaceStepComponent } from './character/race-step/race-step.component';
-import { ClassStepComponent } from './character/class-step/class-step.component';
-import { StatsStepComponent } from './character/stats-step/stats-step.component';
-import { WeaponStepComponent } from './character/weapon-step/weapon-step.component';
-import { WeaponsHeaderComponent } from './character/weapon-step/weapons-header/weapons-header.component';
-import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
-import {PaginationConfig, PaginationModule} from 'ngx-bootstrap/pagination';
-import { WeaponDescriptionComponent } from './character/weapon-step/weapon-description/weapon-description.component';
 
 
 @NgModule({
@@ -39,14 +28,6 @@ import { WeaponDescriptionComponent } from './character/weapon-step/weapon-descr
     WeaponComponent,
     SpellComponent,
     SpellDescriptionComponent,
-    CharacterComponent,
-    GeneralStepComponent,
-    RaceStepComponent,
-    ClassStepComponent,
-    StatsStepComponent,
-    WeaponStepComponent,
-    WeaponsHeaderComponent,
-    WeaponDescriptionComponent
   ],
   imports: [
     CommonModule,
@@ -59,14 +40,10 @@ import { WeaponDescriptionComponent } from './character/weapon-step/weapon-descr
     SimpleNotificationsModule.forRoot(),
     AccordionModule,
     FormsModule,
-    ArchwizardModule,
-    BsDropdownModule,
-    PaginationModule.forRoot()
   ],
   providers: [
     NotifService,
-    BsModalService,
-    PaginationConfig
+    BsModalService
   ]
 })
 export class CreateModule {
