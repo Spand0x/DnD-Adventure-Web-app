@@ -27,6 +27,10 @@ export class AuthService {
   private currentUserSubject: BehaviorSubject<User>;
   currentUser: Observable<User>;
 
+  private apiUrl = environment.apiUrl;
+  private requestMapping = '/users';
+  private url = this.apiUrl + this.requestMapping;
+
   constructor(private afAuth: AngularFireAuth, private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(null);
     this.currentUser = this.currentUserSubject.asObservable();
@@ -70,18 +74,11 @@ export class AuthService {
     return this.http.post<any>(environment.apiUrl + '/auth/token', null);
   }
 
-  // Todo: Not implemented yet:
-  register(credentials: ICreateCredentials) {
-    return from(
-      this.afAuth.auth.createUserWithEmailAndPassword(credentials.email, credentials.password).then(
-        () => {
-          this.afAuth.auth.currentUser.updateProfile({displayName: credentials.displayName});
-          this.afAuth.auth.updateCurrentUser(this.afAuth.auth.currentUser);
-        }
-      )
-    );
+  register(userRegistration): Observable<any> {
+    return this.http.post(`${this.url}/register`, userRegistration);
   }
 
+  // Todo: Not implemented yet:
   sendPasswordEmail(email) {
     return from(this.afAuth.auth.sendPasswordResetEmail(email));
   }

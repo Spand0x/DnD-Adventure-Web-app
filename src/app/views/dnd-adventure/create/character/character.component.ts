@@ -79,7 +79,6 @@ export class CharacterComponent implements OnInit {
   selectSpells(spells: Spell[]) {
     this.selectedSpells = spells;
     this.createCharacter();
-    this.wizard.goToNextStep();
   }
 
   goBack() {
@@ -96,7 +95,8 @@ export class CharacterComponent implements OnInit {
 
     this.characterService.createCharacter(character)
       .subscribe(char => {
-        this.notifService.infoNotification('Character created successfully');
+        this.notifService.successNotification('Character created successfully');
+        this.wizard.goToNextStep();
       }, error => this.notifService.errorNotification(error));
   }
 }

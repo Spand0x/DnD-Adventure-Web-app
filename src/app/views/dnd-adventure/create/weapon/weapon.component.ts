@@ -9,6 +9,7 @@ import {SpellName} from '../../../../shared/models/spell-name.model';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {SpellDescriptionComponent} from './spell-description/spell-description.component';
 import {StatsEnum} from '../../../../shared/models/stats.enum';
+import {Weapon} from '../../../../shared/models/weapon.model';
 
 @Component({
   selector: 'app-weapon',
@@ -70,8 +71,12 @@ export class WeaponComponent implements OnInit {
 
   onSubmit() {
     if (this.weaponForm.valid) {
-      this.itemService.createWeapon(this.weaponForm.value)
-        .subscribe(weapon => {
+      const weapon: Weapon = this.weaponForm.value;
+      if (weapon.spell) {
+        weapon.spell = {uuid: this.weaponForm.value.spell, name: null};
+      }
+      this.itemService.createWeapon(weapon)
+        .subscribe(wep => {
           this.notifService.successNotification('Weapon created successfully');
         }, error => this.notifService.errorNotification(error));
     }

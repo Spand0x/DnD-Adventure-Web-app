@@ -35,17 +35,11 @@ export class LoginComponent implements OnInit {
 
     } else {
       this.authService.signIn(this.loginForm.value).then((user) => {
-          console.log('Lolzi');
           this.router.navigate(['/']);
         },
         (error) => {
           this.buttonDisabled = false;
           this.buttonState = '';
-          // this.notifications.create('Error', error.message, NotificationType.Bare, {
-          //   theClass: 'outline primary',
-          //   timeOut: 6000,
-          //   showProgressBar: false
-          // });
         });
     }
 

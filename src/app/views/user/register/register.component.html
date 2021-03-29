@@ -15,20 +15,26 @@
 
     <form #registerForm="ngForm" novalidate  (ngSubmit)="onSubmit()">
       <label class="form-group has-float-label">
-        <input class="form-control" required ngModel #displayName="ngModel" name="displayName"/>
-        <span>{{ 'user.fullname' | translate }}</span>
-        <div *ngIf="!displayName.valid && registerForm.submitted" class="invalid-tooltip">Name is required!</div>
+        <input class="form-control" required minlength="3" ngModel #username="ngModel" name="username"/>
+        <span>Username</span>
+        <div *ngIf="!username.valid && registerForm.submitted" class="invalid-tooltip">Username should be more than 3 symbols!</div>
       </label>
       <label class="form-group has-float-label">
         <input class="form-control" required email ngModel #email="ngModel" name="email"/>
-        <span>{{ 'user.email' | translate }}</span>
+        <span>Email</span>
         <div *ngIf="!email.valid && registerForm.submitted" class="invalid-tooltip">Email is required!</div>
         <div *ngIf="email?.errors?.email && registerForm.submitted" class="invalid-tooltip">Email must be a valid address!</div>
       </label>
       <label class="form-group has-float-label">
-        <input class="form-control" type="password" placeholder="" required ngModel #password="ngModel" name="password"/>
-        <span>{{ 'user.password' | translate }}</span>
-        <div *ngIf="!password.valid && registerForm.submitted" class="invalid-tooltip">Password is required!</div>
+        <input class="form-control" type="password" minlength="6" placeholder="" required ngModel #password="ngModel" name="password"/>
+        <span>Password</span>
+        <div *ngIf="!password.valid && registerForm.submitted" class="invalid-tooltip">Password should be more than 6 symbols!</div>
+      </label>
+      <label class="form-group has-float-label">
+        <input class="form-control" type="password" placeholder="" required ngModel #repPassword="ngModel" name="repPassword"/>
+        <span>Repeat Password</span>
+        <div *ngIf="!repPassword.valid && registerForm.submitted" class="invalid-tooltip">Repeat password is required!</div>
+        <div *ngIf="passwordMismatch" class="invalid-tooltip">Passwords does not match</div>
       </label>
       <div class="d-flex justify-content-between align-items-center">
         <a routerLink="/user/forgot-password">{{ 'user.forgot-password' | translate }}?</a>

@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-error',
@@ -6,7 +7,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class ErrorComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     document.body.classList.add('background');
@@ -16,4 +17,7 @@ export class ErrorComponent implements OnInit, OnDestroy {
     document.body.classList.remove('background');
   }
 
+  goBack() {
+    this.router.navigate(['/']);
+  }
 }

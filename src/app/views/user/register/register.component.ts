@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from 'src/app/shared/services/auth.service';
 import {Router} from '@angular/router';
 import {NgForm} from '@angular/forms';
+import {NotifService} from '../../../shared/services/notif.service';
 
 @Component({
   selector: 'app-register',
@@ -11,9 +12,10 @@ export class RegisterComponent implements OnInit {
   @ViewChild('registerForm') registerForm: NgForm;
   buttonDisabled = false;
   buttonState = '';
+  passwordMismatch = false;
 
   constructor(private authService: AuthService,
-              // private notifications: NotificationsService,
+              private notifService: NotifService,
               private router: Router) {
   }
 
@@ -24,15 +26,22 @@ export class RegisterComponent implements OnInit {
     if (!this.registerForm.valid || this.buttonDisabled) {
       return;
     }
+    if (this.registerForm.value.password !== this.registerForm.value.repPassword) {
+      this.passwordMismatch = true;
+      return;
+    }
+
     this.buttonDisabled = true;
     this.buttonState = 'show-spinner';
 
-    this.authService.register(this.registerForm.value).subscribe(() => {
-      this.router.navigate(['/']);
-    }, (error) => {
-      // this.notifications.create('Error', error.message, NotificationType.Bare, { theClass: 'outline primary', timeOut: 6000, showProgressBar: false });
-      this.buttonDisabled = false;
-      this.buttonState = '';
-    });
+    this.authService.register(this.registerForm.value)
+      .subscribe(() => {
+        this.notifService.successNotification('Registered Successfully');
+        this.router.navigate(['/user/login']);
+      }, (error) => {
+        this.notifService.errorNotification(error);
+        this.buttonDisabled = false;
+        this.buttonState = '';
+      });
   }
 }

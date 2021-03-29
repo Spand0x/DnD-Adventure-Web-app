@@ -82,13 +82,6 @@ const data: IMenuItem[] = [
         to: '/list/action/attack'
       }]
     }]
-  },
-  {
-    id: 'docs',
-    icon: 'iconsminds-library',
-    label: 'menu.docs',
-    to: 'https://vien-docs.coloredstrategies.com/',
-    newWindow: true
   }
 ];
 export default data;
