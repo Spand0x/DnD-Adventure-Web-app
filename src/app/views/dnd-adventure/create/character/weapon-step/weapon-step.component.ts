@@ -63,15 +63,15 @@ export class WeaponStepComponent implements OnInit {
     this.bsModalRef = this.modalService.show(WeaponDescriptionComponent, {initialState});
   }
 
-  isSelected(item: Weapon) {
-    return this.selectedWeapons.findIndex(x => x.uuid === item.uuid) > -1;
+  isSelected(weapon: Weapon) {
+    return this.selectedWeapons.findIndex(x => x.uuid === weapon.uuid) > -1;
   }
 
-  onSelect(item: Weapon) {
-    if (this.isSelected(item)) {
-      this.selectedWeapons = this.selectedWeapons.filter(x => x.uuid !== item.uuid);
+  onSelect(weapon: Weapon) {
+    if (this.isSelected(weapon)) {
+      this.selectedWeapons = this.selectedWeapons.filter(x => x.uuid !== weapon.uuid);
     } else {
-      this.selectedWeapons.push(item);
+      this.selectedWeapons.push(weapon);
     }
   }
 

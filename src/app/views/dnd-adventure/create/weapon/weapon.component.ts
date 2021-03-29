@@ -37,7 +37,6 @@ export class WeaponComponent implements OnInit {
       name: new FormControl(null, [Validators.required]),
       description: new FormControl(null, [Validators.required]),
       gold: new FormControl(null, [Validators.required, Validators.min(0)]),
-      quantity: new FormControl(null, [Validators.required, Validators.min(1)]),
       rarity: new FormControl(null, [Validators.required]),
       weaponType: new FormControl(null, [Validators.required]),
       attackType: new FormControl(null, [Validators.required]),

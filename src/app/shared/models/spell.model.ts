@@ -12,8 +12,6 @@ export interface Spell {
   damageDice: DiceTypeEnum;
   damageModifier: StatsEnum;
   hitChanceBonus: number;
-  availableCharges: number;
-  maxCharges: number;
   effect: string;
   notes: string;
 

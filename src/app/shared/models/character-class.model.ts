@@ -8,4 +8,6 @@ export interface CharacterClass {
   hitPointsDice: DiceTypeEnum;
   savingThrowStat: StatsEnum;
   isExpanded: boolean;
+  maxSpellCharges: number;
+  spellChargesPerLevel: number;
 }

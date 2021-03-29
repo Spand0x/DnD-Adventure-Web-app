@@ -25,12 +25,6 @@
               <div *ngIf="weaponForm.get('gold').errors && form.submitted" class="invalid-tooltip">Gold should be zero or positive number</div>
             </div>
             <div class="form-group">
-              <label for="quantity">Quantity</label>
-              <input type="number" class="form-control" formControlName="quantity" id="quantity">
-              <div *ngIf="weaponForm.get('quantity').errors?.required && form.submitted" class="invalid-tooltip">Quantity is required</div>
-              <div *ngIf="weaponForm.get('quantity').errors && form.submitted" class="invalid-tooltip">Quantity should be a positive number</div>
-            </div>
-            <div class="form-group">
               <label for="rarity">Rarity</label>
               <ng-select [items]="rarities" formControlName="rarity" id="rarity">
               </ng-select>

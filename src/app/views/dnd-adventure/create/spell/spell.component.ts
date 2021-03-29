@@ -37,7 +37,6 @@ export class SpellComponent implements OnInit {
       damageDice: new FormControl(null ),
       damageModifier: new FormControl(null),
       hitChanceBonus: new FormControl(0),
-      maxCharges: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(10)]),
       effect: new FormControl(null),
       notes: new FormControl(null),
       range: new FormControl(null, [Validators.required]),

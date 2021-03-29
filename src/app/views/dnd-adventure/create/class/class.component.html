@@ -11,7 +11,7 @@
               <div *ngIf="classForm.get('name').errors?.required && form.submitted" class="invalid-tooltip">Stat is required</div>
             </div>
             <div class="form-group">
-              <label for="dis-description">{{ 'forms.description' | translate}}</label>
+              <label for="dis-description">Description</label>
               <textarea class="form-control" rows="4" formControlName="description" id="dis-description"></textarea>
               <div *ngIf="classForm.get('description').errors?.required && form.submitted" class="invalid-tooltip">Description is required!</div>
               <div *ngIf="classForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Description must contain at least 5
@@ -23,6 +23,16 @@
               <ng-select [items]="stats" formControlName="savingThrowStat" id="savingThrowStat">
               </ng-select>
               <div *ngIf="classForm.get('savingThrowStat').errors?.required && form.submitted" class="invalid-tooltip">Saving throw stat is required</div>
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                <label for="maxSpellCharges">Max Spell Charges</label>
+                <input type="number" class="form-control" step=".05" formControlName="maxSpellCharges" id="maxSpellCharges">
+              </div>
+              <div class="col">
+                <label for="spellChargesPerLevel">Spell Charges Per Level</label>
+                <input type="number" class="form-control" step=".05" formControlName="spellChargesPerLevel" id="spellChargesPerLevel">
+              </div>
             </div>
             <div class="form-group">
               <label for="hitPointsDice">Dice for HP</label>

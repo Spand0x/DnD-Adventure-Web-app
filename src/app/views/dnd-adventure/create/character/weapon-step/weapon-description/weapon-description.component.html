@@ -15,7 +15,7 @@
       </div>
       <div class="row mb-2">
         <div class="col"><span class="font-weight-bold">Hit Chance Bonus:</span> {{weapon.hitChanceBonus}}</div>
-        <div class="col"><span class="font-weight-bold">Spell Name:</span> {{weapon.spell}}</div>
+        <div class="col" *ngIf="weapon.spell"><span class="font-weight-bold">Spell Name:</span> {{weapon.spell.name}}</div>
       </div>
       <div class="row mb-2">
         <div class="col"><span class="font-weight-bold">Weapon Type:</span> {{weapon.weaponType}}</div>
@@ -23,7 +23,6 @@
       </div>
       <div class="separator mb-2"></div>
       <div class="row mb-2">
-        <div class="col"><span class="font-weight-bold">Quantity:</span> {{weapon.quantity}}</div>
         <div class="col"><span class="font-weight-bold">Gold:</span> {{weapon.gold}}</div>
       </div>
 

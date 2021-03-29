@@ -6,6 +6,10 @@ import {CharacterClass} from '../../../../shared/models/character-class.model';
 import {WeaponService} from '../../../../shared/services/weapon.service';
 import {Weapon} from '../../../../shared/models/weapon.model';
 import {Spell} from '../../../../shared/models/spell.model';
+import {Character} from '../../../../shared/models/character.model';
+import {CharacterService} from '../../../../shared/services/character.service';
+import {CharacterStats} from '../../../../shared/models/character-stats.model';
+import {StatsEnum} from '../../../../shared/models/stats.enum';
 
 @Component({
   selector: 'app-create-character',
@@ -20,13 +24,14 @@ export class CharacterComponent implements OnInit {
   selectedClass: CharacterClass;
   selectedWeapons: Weapon[] = [];
   selectedSpells: Spell[] = [];
-  stats: any;
+  stats: CharacterStats[] = [];
 
   isWeaponsStep = false;
   isSpellStep = false;
 
   constructor(private itemService: WeaponService,
-              private notifService: NotifService) {
+              private notifService: NotifService,
+              private characterService: CharacterService) {
   }
 
   ngOnInit(): void {
@@ -56,7 +61,11 @@ export class CharacterComponent implements OnInit {
   }
 
   selectStats(stats) {
-    this.stats = stats;
+    Object.entries(stats).map((stat) => {
+      const enumKey = Object.keys(StatsEnum).filter(x => StatsEnum[x] === StatsEnum[stat[0].toUpperCase()])[0];
+      // @ts-ignore
+      return this.stats.push({uuid: null, name: enumKey, value: stat[1]});
+    });
     this.isWeaponsStep = true;
     this.wizard.goToNextStep();
   }
@@ -69,6 +78,7 @@ export class CharacterComponent implements OnInit {
 
   selectSpells(spells: Spell[]) {
     this.selectedSpells = spells;
+    this.createCharacter();
     this.wizard.goToNextStep();
   }
 
@@ -76,4 +86,17 @@ export class CharacterComponent implements OnInit {
     this.wizard.goToPreviousStep();
   }
 
+  private createCharacter() {
+    const character: Character = this.generalInfo;
+    character.race = this.selectedRace.uuid;
+    character.clazz = this.selectedClass.uuid;
+    character.stats = this.stats;
+    character.weapons = this.selectedWeapons.map(w => w.uuid);
+    character.spells = this.selectedSpells.map(s => s.uuid);
+
+    this.characterService.createCharacter(character)
+      .subscribe(char => {
+        this.notifService.infoNotification('Character created successfully');
+      }, error => this.notifService.errorNotification(error));
+  }
 }

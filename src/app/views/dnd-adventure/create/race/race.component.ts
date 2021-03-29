@@ -5,6 +5,7 @@ import {ModifierService} from '../../../../shared/services/modifier.service';
 import {RaceService} from '../../../../shared/services/race.service';
 import {StatsEnum} from '../../../../shared/models/stats.enum';
 import {Modifier} from '../../../../shared/models/stats-modifiers.model';
+import {Race} from '../../../../shared/models/race.model';
 
 @Component({
   selector: 'app-race',
@@ -49,8 +50,12 @@ export class RaceComponent implements OnInit {
 
   onSubmit() {
     if (this.raceForm.valid) {
-      this.raceService.save(this.raceForm.value)
-        .subscribe(race => {
+      const race: Race = this.raceForm.value;
+      race.modifiers = this.raceForm.value.modifiers.map((m: any) => {
+       return {uuid: m};
+      } );
+      this.raceService.save(race)
+        .subscribe(result => {
           this.notificationService.successNotification('Race created successfully.');
         }, error => this.notificationService.errorNotification(error));
     }

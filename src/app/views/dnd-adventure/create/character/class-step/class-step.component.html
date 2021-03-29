@@ -28,6 +28,14 @@
         <div class="mb-5 mt-3 text-left">
           <p><strong>Saving Throw Stat:</strong>&nbsp;{{charClass.savingThrowStat}}</p>
         </div>
+        <div class="mb-5 mt-3 row justify-content-between text-left" *ngIf="charClass.maxSpellCharges">
+          <div class="col">
+            <strong>Max Spell Charges:</strong>&nbsp;{{charClass.maxSpellCharges}}
+          </div>
+          <div class="col">
+            <strong>Spell Charges Per Level:</strong>&nbsp;{{charClass.spellChargesPerLevel}}
+          </div>
+        </div>
       </accordion-group>
     </accordion>
   </div>

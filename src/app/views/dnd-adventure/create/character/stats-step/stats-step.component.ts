@@ -43,7 +43,6 @@ export class StatsStepComponent implements OnInit {
       this.selectedRaceModifiers[modif.name.toString().toLowerCase()]
         = modif.value > 0 ? '+' + modif.value : modif.value;
     });
-    console.log(this.stats);
   }
 
   selectStat() {
