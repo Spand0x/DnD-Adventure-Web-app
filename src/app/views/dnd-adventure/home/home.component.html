@@ -10,13 +10,13 @@
     </h1>
   </div>
   <div *ngIf="hasCharacters" class="justify-content-center">
-    <div class="col-12 col-lg-6 mb-5" *ngFor="let character of characters">
-      <div class="card">
-        <div class="row">
+    <div class="row">
+      <div class="col-12 col-lg-6 mb-5" *ngFor="let character of characters">
+        <div class="card flex-row">
           <div class="col-lg-4">
-            <img class="card-img-left img-thumbnail" [src]="character.imageUrl" alt="Card image cap">
+            <img class="card-img-left img-thumbnail" [src]="character.imageUrl" alt="Image was not able to load">
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-8 ">
             <a [routerLink]="['/character', character.uuid]">
               <div class="card-body">
                 <h5 class="mb-1"><span class="text-muted">Name:&nbsp;</span>{{character.name}}</h5>

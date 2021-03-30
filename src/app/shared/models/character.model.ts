@@ -10,6 +10,7 @@ export interface Character {
   name: string;
   description: string;
   level: number;
+  imageUrl: string;
   armor: number;
   maxHitPoints: number;
   currentHitPoints: number;

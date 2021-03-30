@@ -17,7 +17,6 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.langService.init();
-    console.log('In App');
   }
 
   ngAfterViewInit() {

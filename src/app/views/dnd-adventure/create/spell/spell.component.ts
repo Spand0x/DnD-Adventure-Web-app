@@ -45,7 +45,6 @@ export class SpellComponent implements OnInit {
       duration: new FormControl(null),
       durationUnit: new FormControl(null)
     });
-    console.log(this.durationType);
   }
 
   onSubmit() {

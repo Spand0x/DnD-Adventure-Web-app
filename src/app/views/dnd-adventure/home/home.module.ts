@@ -4,6 +4,7 @@ import {HomeComponent} from './home.component';
 import {LayoutContainersModule} from '../../../containers/layout/layout.containers.module';
 import {SharedModule} from '../../../shared/shared.module';
 import {HomeRoutingModule} from './home.routing';
+import {EllipsisModule} from 'ngx-ellipsis';
 
 
 @NgModule({

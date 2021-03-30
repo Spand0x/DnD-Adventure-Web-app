@@ -71,7 +71,6 @@ export class StatsStepComponent implements OnInit {
 
   submit() {
     if (this.statsForm.valid) {
-      console.log('patch values with modifiers');
       this.statsResult.emit(this.statsForm.value);
     } else {
       this.statsFormSubmitted = true;

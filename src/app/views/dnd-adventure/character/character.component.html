@@ -1,1 +1,8 @@
-<p>character works!</p>
+<div class="loading" *ngIf="isLoading"></div>
+<div class="container" *ngIf="!isLoading">
+  <div class="row justify-content-between">
+    <h1 class="font-weight-bold">{{character.name}}</h1>
+    <h3>{{character.clazz.name}}</h3>
+    <h3>{{character.race.name}}</h3>
+  </div>
+</div>

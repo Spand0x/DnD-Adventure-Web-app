@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 export class ViewsComponent implements OnInit {
 
   constructor(private router: Router) {
-    console.log('In Views Component');
+    // console.log('In Views Component');
     // If you have landing page, remove below line and implement it here.
   }
 

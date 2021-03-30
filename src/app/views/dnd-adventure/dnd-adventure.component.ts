@@ -14,7 +14,6 @@ export class DndAdventureComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('In DND');
     this.subscription = this.sidebarService.getSidebar().subscribe(
       res => {
         this.sidebar = res;
