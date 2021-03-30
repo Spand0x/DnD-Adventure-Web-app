@@ -24,7 +24,7 @@
   },
   "menu": {
     "app": "Home",
-    "home": "Home",
+    "home": "Characters:",
     "create-character": "Create character",
     "create": "Create",
     "create-race": "Race",
@@ -41,6 +41,7 @@
     "class": "Class",
     "weapon": "Weapon",
     "character": "Character",
+    "characters": "Characters",
 
     "vien": "Vien",
     "start": "Start",

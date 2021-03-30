@@ -10,11 +10,13 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {NotifService} from '../../shared/services/notif.service';
 import {NgSelectModule} from '@ng-select/ng-select';
+import { CharacterComponent } from './character/character.component';
 
 
 @NgModule({
   declarations: [
-    DndAdventureComponent
+    DndAdventureComponent,
+    CharacterComponent
   ],
   imports: [
     CommonModule,

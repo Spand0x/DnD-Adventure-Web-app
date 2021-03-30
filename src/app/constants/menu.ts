@@ -11,7 +11,7 @@ const data: IMenuItem[] = [
   {
     id: 'home',
     icon: 'iconsminds-air-balloon-1',
-    label: 'menu.home',
+    label: 'menu.characters',
     to: '/home'
   },
   {

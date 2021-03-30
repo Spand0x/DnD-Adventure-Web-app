@@ -1,5 +1,11 @@
+import {CharacterBaseInfo} from './character-base-info.model';
+
 export class User {
   uuid: string;
   username: string;
-  // todo
+  email: string;
+  // userRoles: Role[]
+  characters: CharacterBaseInfo[];
+  // campaigns: Campaign;
+
 }

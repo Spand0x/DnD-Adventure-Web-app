@@ -8,9 +8,10 @@ const routes: Routes = [
     path: '', component: DndAdventureComponent,
     children: [
       {path: '', pathMatch: 'full', redirectTo: 'home'},
-      {path: 'home', component: HomeComponent},
+      {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
       {path: 'create', loadChildren: () => import('./create/create.module').then(m => m.CreateModule)},
-      {path: 'list', loadChildren: () => import('./list/list.module').then(m => m.ListModule)}
+      {path: 'list', loadChildren: () => import('./list/list.module').then(m => m.ListModule)},
+      {path: 'character/:uuid', loadChildren: () => import('./character/character.module').then(m => m.CharacterModule)}
     ]
   }
 ];

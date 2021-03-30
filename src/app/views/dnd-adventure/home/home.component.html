@@ -1,1 +1,34 @@
-<h1>To be implemented</h1>
+<app-heading></app-heading>
+<div *ngIf="isLoading" class="loading"></div>
+<div *ngIf="!isLoading">
+  <div *ngIf="!hasCharacters" class="row justify-content-center">
+    <h1 class="text-center">
+      Adventurer, you have not yet created any characters for adventures.
+      <br>To start with your adventure you need to
+      <br>
+      <a class="badge badge-pill badge-outline-primary mb-1" routerLink="/create/character">Create Character</a>
+    </h1>
+  </div>
+  <div *ngIf="hasCharacters" class="justify-content-center">
+    <div class="col-12 col-lg-6 mb-5" *ngFor="let character of characters">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-4">
+            <img class="card-img-left img-thumbnail" [src]="character.imageUrl" alt="Card image cap">
+          </div>
+          <div class="col-lg-8">
+            <a [routerLink]="['/character', character.uuid]">
+              <div class="card-body">
+                <h5 class="mb-1"><span class="text-muted">Name:&nbsp;</span>{{character.name}}</h5>
+                <div class="separator mb-3"></div>
+                <p><span class="text-muted">Level:&nbsp;</span>{{character.level}}</p>
+                <p><span class="text-muted">Class:&nbsp;</span>{{character.clazzName}}</p>
+                <p><span class="text-muted">Race:&nbsp;</span>{{character.raceName}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

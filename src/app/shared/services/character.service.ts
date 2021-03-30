@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {environment} from '../../../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {Character} from '../models/character.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class CharacterService {
 
   createCharacter(data): Observable<any> {
     return this.http.post(`${this.url}`, data);
+  }
+
+  get(uuid: string): Observable<Character> {
+    return this.http.get<Character>(`${this.url}/${uuid}`);
   }
 }
