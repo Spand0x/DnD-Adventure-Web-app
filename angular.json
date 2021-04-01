@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Vien-Angular": {
+    "dnd-adventure-web-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Vien-Angular",
+            "outputPath": "dist/dnd-adventure-web-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -178,18 +178,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "Vien-Angular:build"
+            "browserTarget": "dnd-adventure-web-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "Vien-Angular:build:production"
+              "browserTarget": "dnd-adventure-web-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Vien-Angular:build"
+            "browserTarget": "dnd-adventure-web-app:build"
           }
         },
         "test": {
@@ -223,16 +223,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "Vien-Angular:serve"
+            "devServerTarget": "dnd-adventure-web-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "Vien-Angular:serve:production"
+              "devServerTarget": "dnd-adventure-web-app:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "Vien-Angular"
+  "defaultProject": "dnd-adventure-web-app"
 }
