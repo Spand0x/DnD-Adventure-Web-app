@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  apiUrl:  'https://dnd-adventures-server.herokuapp.com/',
+  apiUrl:  'https://dnd-adventures-server.herokuapp.com',
   defaultMenuType: 'menu-default',
   subHiddenBreakpoint: 1440,
   menuHiddenBreakpoint: 768,
