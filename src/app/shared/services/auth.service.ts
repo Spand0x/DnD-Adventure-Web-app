@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {AngularFireAuth} from '@angular/fire/auth';
 import {BehaviorSubject, from, Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../models/user.model';
@@ -31,7 +30,7 @@ export class AuthService {
   private requestMapping = '/users';
   private url = this.apiUrl + this.requestMapping;
 
-  constructor(private afAuth: AngularFireAuth, private http: HttpClient) {
+  constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(null);
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -57,7 +56,6 @@ export class AuthService {
   }
 
   getUserInfo(): Observable<User> {
-    console.log('In User Info');
     return this.http.get<User>(environment.apiUrl + '/users/info')
       // @ts-ignore
       .pipe<User>(map(user => this.currentUserSubject.next(user)));
@@ -80,11 +78,11 @@ export class AuthService {
 
   // Todo: Not implemented yet:
   sendPasswordEmail(email) {
-    return from(this.afAuth.auth.sendPasswordResetEmail(email));
+    // return from(this.afAuth.auth.sendPasswordResetEmail(email));
   }
 
   resetPassword(credentials: IPasswordReset) {
-    return from(this.afAuth.auth.confirmPasswordReset(credentials.code, credentials.newPassword));
+    // return from(this.afAuth.auth.confirmPasswordReset(credentials.code, credentials.newPassword));
   }
 
 }
