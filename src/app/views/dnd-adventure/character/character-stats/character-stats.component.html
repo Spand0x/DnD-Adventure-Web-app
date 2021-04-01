@@ -1,0 +1,11 @@
+<div class="card">
+  <div class="card-body row justify-content-between mb-3">
+    <button class="col text-center btn btn-outline-primary ml-1"
+            *ngFor="let stat of statsAndModifiers"
+            (click)="rollDice.emit(stat.modifier)">
+      <h4>{{stat.name}}</h4>
+      <h1 class="border border-secondary p-2">{{stat.modifier > 0 ? '+' + stat.modifier : stat.modifier}}</h1>
+      <div class="border rounded-circle border-secondary p-2 ">{{stat.value}}</div>
+    </button>
+  </div>
+</div>

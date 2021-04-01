@@ -1,0 +1,62 @@
+<div class="modal-body">
+  <h2 class="modal-title text-center font-weight-bolder">{{character.name}}</h2>
+  <div class="separator mt-3 mb-3"></div>
+  <div class="modal-content">
+    <h3 class="font-weight-bold ">{{character.description}}</h3>
+    <div class="separator mb-2 mt-1"></div>
+    <div class="row mb-1">
+      <h5 class="col"><span class="font-weight-bold">Race:</span> {{character.race.name}}</h5>
+      <h5 class="col"><span class="font-weight-bold">Class:</span> {{character.clazz.name}}</h5>
+    </div>
+    <div class="row mb-2">
+      <h5 class="col"><span class="font-weight-bold">Level:</span> {{character.level}}</h5>
+    </div>
+    <div class="separator mb-2"></div>
+    <div class="row mb-2">
+      <div class="col"><span class="font-weight-bold">Armor:</span> {{character.armor}}</div>
+      <div class="col"><span class="font-weight-bold">Initiative:</span> {{character.initiative}}</div>
+    </div>
+    <div class="row mb-2">
+      <div class="col"><span class="font-weight-bold">Hit Points:</span> {{character.maxHitPoints}}</div>
+      <div class="col" *ngIf="character.maxSpellCharges"><span class="font-weight-bold">Spell Charges:</span> {{character.maxSpellCharges}}</div>
+      <div class="col"><span class="font-weight-bold">Gold:</span> {{character.gold}}</div>
+    </div>
+    <div class="row mb-2 justify-content-center">
+      <h3>Advantages:</h3>
+      <div *ngFor="let advantage of character.race.advantages">
+        <div class="row border border-primary rounded-pill p-2 mx-3 text-center justify-content-center mt-1">
+          <h4 class="mx-3">{{advantage.name}}</h4>
+          <div class="row mx-3">{{advantage.description}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="separator"></div>
+    <div class="row mb-2 justify-content-center">
+      <h3>Disadvantages:</h3>
+      <div *ngFor="let disadvantage of character.race.disadvantages">
+        <div class="row border border-primary rounded-pill p-2 mx-3 text-center justify-content-center mt-1">
+          <h4 class="mx-3">{{disadvantage.name}}</h4>
+          <div class="row mx-3">{{disadvantage.description}}</div>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="separator mb-2"></div>-->
+    <!--    <div class="row mb-2">-->
+    <!--      <div class="col"><span class="font-weight-bold">Casting Type:</span> {{character.castingType}}</div>-->
+    <!--    </div>-->
+    <!--    <div class="row mb-2 border-primary">-->
+    <!--      <div class="col"><span class="font-weight-bold">Duration Type:</span> {{character.durationType}}</div>-->
+    <!--      <div class="col" *ngIf="character.durationType.toString() === 'TIME'">-->
+    <!--        <div><span class="font-weight-bold">Duration:</span> {{character.duration}}&nbsp;{{character.durationUnit}}</div>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    <div class="row mb-2">-->
+    <!--      <div class="col"><span class="font-weight-bold">Notes:</span> {{character.notes}}</div>-->
+    <!--    </div>-->
+    <div class="mt-3 justify-content-end">
+      <button type="button" class="btn btn-primary"
+              (click)="bsModalRef.hide()">Close
+      </button>
+    </div>
+  </div>
+</div>

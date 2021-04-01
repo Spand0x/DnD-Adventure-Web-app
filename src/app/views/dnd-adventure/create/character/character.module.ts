@@ -7,7 +7,6 @@ import {ClassStepComponent} from './class-step/class-step.component';
 import {StatsStepComponent} from './stats-step/stats-step.component';
 import {WeaponStepComponent} from './weapon-step/weapon-step.component';
 import {WeaponsHeaderComponent} from './weapon-step/weapons-header/weapons-header.component';
-import {WeaponDescriptionComponent} from './weapon-step/weapon-description/weapon-description.component';
 import {ArchwizardModule} from 'angular-archwizard';
 import {SharedModule} from '../../../../shared/shared.module';
 import {BsModalService} from 'ngx-bootstrap/modal';
@@ -20,7 +19,6 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {CharacterRoutingModule} from './character.routing';
 import { SpellStepComponent } from './spell-step/spell-step.component';
 import { SpellsHeaderComponent } from './spell-step/spells-header/spells-header.component';
-import { SpellDescriptionComponent } from './spell-step/spell-description/spell-description.component';
 
 
 @NgModule({
@@ -31,10 +29,9 @@ import { SpellDescriptionComponent } from './spell-step/spell-description/spell-
     StatsStepComponent,
     WeaponStepComponent,
     WeaponsHeaderComponent,
-    WeaponDescriptionComponent,
     SpellStepComponent,
-    SpellsHeaderComponent,
-    SpellDescriptionComponent],
+    SpellsHeaderComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,

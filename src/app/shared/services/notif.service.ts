@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {NotificationsService, NotificationType} from 'angular2-notifications';
+import {DiceTypeEnum} from '../models/dice-type.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,16 @@ export class NotifService {
   infoNotification(message) {
     this.notifications.create('Info', message, NotificationType.Info,
       {theClass: 'outline', timeOut: 3000, showProgressBar: false});
+  }
+
+  diceNotification(result, diceType: DiceTypeEnum, times: number, modifier?) {
+    let message;
+    if (modifier) {
+      message = `<h4 class="font-weight-bolder">${result}</h4>${times}${diceType}${modifier >= 0 ? '+' + modifier : modifier}`;
+    } else {
+      message = `<h4 class="font-weight-bolder">${result}</h4>${times}${diceType}`;
+    }
+    this.notifications.create('Dice Rolled:', message, NotificationType.Success,
+      {theClass: 'outline', timeOut: 10000, showProgressBar: false});
   }
 }

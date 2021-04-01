@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {DiceTypeEnum} from '../models/dice-type.enum';
+import {NotifService} from './notif.service';
 
 @Injectable({
   providedIn: 'root'
@@ -19,5 +20,14 @@ export class RollDiceService {
     const minNumberIndex = result.indexOf(minNumber);
     result.splice(minNumberIndex, 1);
     return result;
+  }
+
+  rollDiceWithModifier(diceType: DiceTypeEnum, modifier: number) {
+    const dice = Number(diceType.slice(1));
+    const rolled = Math.floor(Math.random() * dice) + 1;
+    if (modifier !== 0) {
+      return `${rolled} + ${modifier} = ${rolled + modifier}`;
+    }
+    return rolled;
   }
 }

@@ -1,13 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import {Spell} from '../../models/spell.model';
 import {BsModalRef} from 'ngx-bootstrap/modal';
-import {SpellService} from '../../../../../shared/services/spell.service';
-import {Spell} from '../../../../../shared/models/spell.model';
-import {NotifService} from '../../../../../shared/services/notif.service';
+import {SpellService} from '../../services/spell.service';
+import {NotifService} from '../../services/notif.service';
 
 @Component({
   selector: 'app-spell-description',
   templateUrl: './spell-description.component.html',
-  styleUrls: ['./spell-description.component.scss']
 })
 export class SpellDescriptionComponent implements OnInit {
   spellUuid: string;
@@ -19,10 +18,12 @@ export class SpellDescriptionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.spellService.getById(this.spellUuid)
-      .subscribe(spell => {
-          this.spell = spell;
-        }, error => this.notifService.errorNotification(error)
-      );
+    if (!this.spell) {
+      this.spellService.getById(this.spellUuid)
+        .subscribe(spell => {
+            this.spell = spell;
+          }, error => this.notifService.errorNotification(error)
+        );
+    }
   }
 }

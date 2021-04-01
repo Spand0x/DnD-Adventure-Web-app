@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SpellDescriptionComponent } from './spell-description.component';
+import { CharacterActionsComponent } from './character-actions.component';
 
-describe('SpellDescriptionComponent', () => {
-  let component: SpellDescriptionComponent;
-  let fixture: ComponentFixture<SpellDescriptionComponent>;
+describe('CharacterActionsComponent', () => {
+  let component: CharacterActionsComponent;
+  let fixture: ComponentFixture<CharacterActionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SpellDescriptionComponent ]
+      declarations: [ CharacterActionsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SpellDescriptionComponent);
+    fixture = TestBed.createComponent(CharacterActionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

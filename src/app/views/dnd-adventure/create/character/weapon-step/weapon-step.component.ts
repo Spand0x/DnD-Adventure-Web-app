@@ -3,9 +3,8 @@ import {WeaponService} from '../../../../../shared/services/weapon.service';
 import {Weapon} from '../../../../../shared/models/weapon.model';
 import {NotifService} from '../../../../../shared/services/notif.service';
 import {StatsEnum} from '../../../../../shared/models/stats.enum';
-import {SpellDescriptionComponent} from '../../weapon/spell-description/spell-description.component';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {WeaponDescriptionComponent} from './weapon-description/weapon-description.component';
+import {WeaponDescriptionComponent} from '../../../../../shared/components/weapon-description/weapon-description.component';
 
 @Component({
   selector: 'app-weapon-step',

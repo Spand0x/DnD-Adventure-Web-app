@@ -1,0 +1,93 @@
+<div class="row mt-3">
+  <div class="col-lg-12 list">
+    <div class="card">
+      <tabset class="card-tabs">
+        <tab heading="Weapons" class="card-body">
+          <div *ngIf="weapons.length === 0">
+            <h1> You have no Weapons</h1>
+          </div>
+          <div class="card d-flex flex-row mb-3" *ngFor="let weapon of weapons">
+            <div class="d-flex flex-grow-1 min-width-zero">
+              <a class="w-100" href="javascript:;" (click)="showWepDescription(weapon)">
+                <div
+                  class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                  <div class="list-item-heading mb-0 truncate w-30 w-xs-100">
+                    <div class="mb-0 text-muted text-small">Name</div>
+                    {{weapon.name}}
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div class="mb-1 text-muted text-small">Attack Type</div>
+                    {{weapon.attackType}}
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div class="mb-1 text-muted text-small">Hit Chance</div>
+                    <button type="button" class="btn btn-outline-primary px-3 py-2"
+                            (click)="rollHitChance($event, weapon)">{{weapon.hitChanceBonus > 0 ? '+' + weapon.hitChanceBonus : weapon.hitChanceBonus}}</button>
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div class="mb-1 text-muted text-small">Damage</div>
+                    <button type="button" class="btn btn-outline-primary px-3 py-2" (click)="rollDamage($event, weapon)">{{weaponDamage(weapon)}}</button>
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div class="mb-1 text-muted text-small">Spell Name:</div>
+                    <span *ngIf="!weapon.spell">No spell available</span>
+                    <button *ngIf="weapon.spell"
+                            type="button"
+                            class="btn btn-outline-primary px-3 py-2"
+                            (click)="showWepSpellDescription($event, weapon.spell)">{{weapon.spell.name}}</button>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Spells" class="card-body">
+          <div *ngIf="spells.length === 0">
+            <h1> You have no Spells</h1>
+          </div>
+          <div class="card d-flex flex-row mb-3" *ngFor="let spell of spells">
+            <div class="d-flex flex-grow-1 min-width-zero">
+              <a class="w-100" href="javascript:;" (click)="showSpellDescription(spell)">
+                <div
+                  class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                  <div class="list-item-heading mb-0 truncate w-30 w-xs-100">
+                    <div class="mb-0 text-muted text-small">Name</div>
+                    {{spell.name}}
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div class="mb-1 text-muted text-small">Level</div>
+                    {{spell.level}} lv.
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div class="mb-1 text-muted text-small">Range</div>
+                    {{spell.range}}
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div class="mb-1 text-muted text-small">Hit Chance</div>
+                    <button type="button" class="btn btn-outline-primary px-3 py-2"
+                            (click)="rollHitChance($event, spell)">{{spell.hitChanceBonus > 0 ? '+' + spell.hitChanceBonus : spell.hitChanceBonus}}</button>
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div *ngIf="spell.damageDice">
+                      <div class="mb-1 text-muted text-small">Damage</div>
+                      <button type="button" class="btn btn-outline-primary px-3 py-2 mb-1" (click)="rollDamage($event, spell)">{{weaponDamage(spell)}}</button>
+                      {{spell.effect}}
+                    </div>
+                    <div *ngIf="!spell.damageDice">
+                      <div class="mb-1 text-muted text-small">Effect</div>
+                      {{spell.effect}}
+                    </div>
+                  </div>
+                  <div class="w-15 w-xs-100">
+                    <div class="mb-1 text-muted text-small">Duration</div>
+                    {{getSpellDuration(spell)}}
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

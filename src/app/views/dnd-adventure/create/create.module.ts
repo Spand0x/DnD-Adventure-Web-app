@@ -15,7 +15,6 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {ClassComponent} from './class/class.component';
 import {WeaponComponent} from './weapon/weapon.component';
 import {SpellComponent} from './spell/spell.component';
-import {SpellDescriptionComponent} from './weapon/spell-description/spell-description.component';
 import {BsModalService} from 'ngx-bootstrap/modal';
 
 
@@ -27,7 +26,6 @@ import {BsModalService} from 'ngx-bootstrap/modal';
     ClassComponent,
     WeaponComponent,
     SpellComponent,
-    SpellDescriptionComponent,
   ],
   imports: [
     CommonModule,

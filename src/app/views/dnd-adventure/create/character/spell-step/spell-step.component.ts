@@ -4,7 +4,7 @@ import {Spell} from '../../../../../shared/models/spell.model';
 import {NotifService} from '../../../../../shared/services/notif.service';
 import {StatsEnum} from '../../../../../shared/models/stats.enum';
 import {SpellService} from '../../../../../shared/services/spell.service';
-import {SpellDescriptionComponent} from './spell-description/spell-description.component';
+import {SpellDescriptionComponent} from '../../../../../shared/components/spell-description/spell-description.component';
 
 @Component({
   selector: 'app-spell-step',

@@ -4,7 +4,8 @@ import {ISidebar, SidebarService} from 'src/app/containers/layout/sidebar/sideba
 
 @Component({
   selector: 'app-app',
-  templateUrl: './dnd-adventure.component.html'
+  templateUrl: './dnd-adventure.component.html',
+  styleUrls: ['./dnd-adventure.component.scss']
 })
 export class DndAdventureComponent implements OnInit, OnDestroy {
   sidebar: ISidebar;

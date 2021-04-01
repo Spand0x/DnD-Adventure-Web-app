@@ -1,6 +1,6 @@
 <div class="card auth-card">
-  <div class="position-relative image-side ">
-    <p class=" text-white h2">MAGIC IS IN THE DETAILS</p>
+  <div class="position-relative image-side pt-3">
+    <p class=" text-white h2">D&D Adventures</p>
     <p class="white mb-0">
       Please use your credentials to login.
       <br>If you are not a member, please
@@ -25,7 +25,8 @@
         <div *ngIf="!password.valid && loginForm.submitted" class="invalid-tooltip">Password is required!</div>
       </label>
       <div class="d-flex justify-content-between align-items-center">
-        <a routerLink="/user/forgot-password">{{ 'user.forgot-password' | translate }}?</a>
+        <div></div>
+<!--        <a routerLink="/user/forgot-password">{{ 'user.forgot-password' | translate }}?</a>-->
         <app-state-button [btnClass]="'btn btn-primary btn-lg btn-shadow'" [currentState]="buttonState"
           [isDisabled]="buttonDisabled" click="onLoginClick()">
           {{ 'user.login-button' | translate | uppercase }}

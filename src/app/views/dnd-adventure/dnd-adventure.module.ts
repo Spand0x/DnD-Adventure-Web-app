@@ -11,6 +11,7 @@ import {SimpleNotificationsModule} from 'angular2-notifications';
 import {NotifService} from '../../shared/services/notif.service';
 import {NgSelectModule} from '@ng-select/ng-select';
 import { CharacterComponent } from './character/character.component';
+import {CharacterModule} from './character/character.module';
 
 
 @NgModule({
@@ -18,18 +19,19 @@ import { CharacterComponent } from './character/character.component';
     DndAdventureComponent,
     CharacterComponent
   ],
-  imports: [
-    CommonModule,
-    DndAdventureRoutingModule,
-    SharedModule,
-    LayoutContainersModule,
-    ReactiveFormsModule,
-    SimpleNotificationsModule.forRoot(),
-    TabsModule.forRoot(),
-    AccordionModule.forRoot(),
-    NgSelectModule,
-    FormsModule,
-  ],
+    imports: [
+        CommonModule,
+        DndAdventureRoutingModule,
+        SharedModule,
+        LayoutContainersModule,
+        ReactiveFormsModule,
+        SimpleNotificationsModule.forRoot(),
+        TabsModule.forRoot(),
+        AccordionModule.forRoot(),
+        NgSelectModule,
+        FormsModule,
+        CharacterModule,
+    ],
   providers: [
     NotifService
   ]

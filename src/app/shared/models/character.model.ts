@@ -17,14 +17,14 @@ export interface Character {
   initiative: number;
   gold: number;
   isDead: boolean;
-  race: Race | string;
-  clazz: CharacterClass | string;
+  race: Race ;
+  clazz: CharacterClass ;
   account: User;
   stats: CharacterStats[];
   spells: Spell[] | string[];
   weapons: Weapon[] | string[];
   maxSpellCharges: number;
-  usedSpellCharges: number;
+  availableSpellCharges: number;
   // campaign: Campaign;
   // items: Item[];
   // armors: Armor[];

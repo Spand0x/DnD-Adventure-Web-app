@@ -7,9 +7,9 @@ import {NotifService} from '../../../../shared/services/notif.service';
 import {SpellService} from '../../../../shared/services/spell.service';
 import {SpellName} from '../../../../shared/models/spell-name.model';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {SpellDescriptionComponent} from './spell-description/spell-description.component';
 import {StatsEnum} from '../../../../shared/models/stats.enum';
 import {Weapon} from '../../../../shared/models/weapon.model';
+import {SpellDescriptionComponent} from '../../../../shared/components/spell-description/spell-description.component';
 
 @Component({
   selector: 'app-weapon',

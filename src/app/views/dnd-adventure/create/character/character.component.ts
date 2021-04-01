@@ -87,7 +87,9 @@ export class CharacterComponent implements OnInit {
 
   private createCharacter() {
     const character: Character = this.generalInfo;
+    // @ts-ignore
     character.race = this.selectedRace.uuid;
+    // @ts-ignore
     character.clazz = this.selectedClass.uuid;
     character.stats = this.stats;
     character.weapons = this.selectedWeapons.map(w => w.uuid);

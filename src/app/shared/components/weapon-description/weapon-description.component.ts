@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Weapon} from '../../../../../../shared/models/weapon.model';
+import { Component, OnInit } from '@angular/core';
+import {Weapon} from '../../models/weapon.model';
 import {BsModalRef} from 'ngx-bootstrap/modal';
 
 @Component({
@@ -7,7 +7,6 @@ import {BsModalRef} from 'ngx-bootstrap/modal';
   templateUrl: './weapon-description.component.html',
 })
 export class WeaponDescriptionComponent implements OnInit {
-
   weapon: Weapon;
 
   constructor(public bsModalRef: BsModalRef) {
