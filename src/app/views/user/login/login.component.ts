@@ -31,17 +31,13 @@ export class LoginComponent implements OnInit {
     this.buttonDisabled = true;
     this.buttonState = 'show-spinner';
 
-    if (this.prod) {
-
-    } else {
-      this.authService.signIn(this.loginForm.value).then((user) => {
-          this.router.navigate(['/']);
-        },
-        (error) => {
-          this.buttonDisabled = false;
-          this.buttonState = '';
-        });
-    }
+    this.authService.signIn(this.loginForm.value).then((user) => {
+        this.router.navigate(['/']);
+      },
+      (error) => {
+        this.buttonDisabled = false;
+        this.buttonState = '';
+      });
 
   }
 }
