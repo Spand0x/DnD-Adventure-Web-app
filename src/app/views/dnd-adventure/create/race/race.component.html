@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-12">
-    <div class="card mb-4">
+    <div class="container card mb-4 w-75">
       <div class="row justify-content-center ">
-        <div class="card-body col-6 ">
+        <div class="card-body col-9 ">
           <h5 class="mb-4 text-center">{{ 'forms.race' | translate }}</h5>
           <form [formGroup]="raceForm" #form="ngForm" (ngSubmit)="onSubmit()" novalidate class="tooltip-center-top">
             <div class="form-group">
@@ -15,16 +15,19 @@
               <label>{{ 'forms.description' | translate }}</label>
               <textarea class="form-control" rows="4" formControlName="description"></textarea>
               <div *ngIf="raceForm.get('description').errors?.required && form.submitted" class="invalid-tooltip">Description is required!</div>
-              <div *ngIf="raceForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Description must contain at least 10 characters!</div>
+              <div *ngIf="raceForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Description must contain at least 10
+                characters!
+              </div>
             </div>
             <label>Advantages:</label>
             <accordion [closeOthers]="false" [isAnimated]="true">
               <accordion-group *ngFor="let advantage of raceForm.get('advantages')['controls']; let i = index"
                                [panelClass]="'border'" [isOpen]="true">
                 <div accordion-heading>
-                  <div class="row">Advantage {{i + 1}}
+                  <div class="row">
+                    <span class="align-self-center">Advantage {{i + 1}}</span>
                     <div class="ml-auto mr-3">
-                      <button class="btn btn-outline-primary" type="button" (click)="removeAdvantage(i)">{{ 'forms.remove' | translate }}</button>
+                      <button class="btn btn-outline-primary p-2" type="button" (click)="removeAdvantage(i)">{{ 'forms.remove' | translate }}</button>
                     </div>
                   </div>
                 </div>
@@ -34,13 +37,18 @@
                       <label for="name">{{ 'forms.name' | translate }}</label>
                       <input type="text" class="form-control" name="name" formControlName="name" id="name">
                       <div *ngIf="advantage.get('name').errors?.required && form.submitted" class="invalid-tooltip">Advantage name is required!</div>
-                      <div *ngIf="advantage.get('name').errors?.minlength && form.submitted" class="invalid-tooltip">Advantage name must contain at least 3 characters!</div>
+                      <div *ngIf="advantage.get('name').errors?.minlength && form.submitted" class="invalid-tooltip">Advantage name must contain at least 3
+                        characters!
+                      </div>
                     </div>
                     <div class="form-group">
                       <label for="description">{{ 'forms.description' | translate}}</label>
                       <textarea class="form-control" rows="2" formControlName="description" id="description"></textarea>
-                      <div *ngIf="advantage.get('description').errors?.required && form.submitted" class="invalid-tooltip">Advantage description is required!</div>
-                      <div *ngIf="advantage.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Advantage description must contain at least 10 characters!</div>
+                      <div *ngIf="advantage.get('description').errors?.required && form.submitted" class="invalid-tooltip">Advantage description is required!
+                      </div>
+                      <div *ngIf="advantage.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Advantage description must contain
+                        at least 10 characters!
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -55,9 +63,10 @@
               <accordion-group *ngFor="let disadvantage of raceForm.get('disadvantages')['controls']; let i = index"
                                [panelClass]="'border'" [isOpen]="true">
                 <div accordion-heading>
-                  <div class="row">Disadvantage {{i + 1}}
+                  <div class="row">
+                    <span class="align-self-center">Disadvantage {{i + 1}}</span>
                     <div class="ml-auto mr-3">
-                      <button class="btn btn-outline-primary" type="button" (click)="removeDisadvantage(i)">{{ 'forms.remove' | translate }}</button>
+                      <button class="btn btn-outline-primary p-2" type="button" (click)="removeDisadvantage(i)">{{ 'forms.remove' | translate }}</button>
                     </div>
                   </div>
                 </div>
@@ -68,14 +77,20 @@
                       <label for="dis-name">{{ 'forms.name' | translate }}</label>
                       <input type="text" class="form-control" name="name" formControlName="name" id="dis-name">
                       <div *ngIf="disadvantage.get('name').errors?.required && form.submitted" class="invalid-tooltip">Disadvantage name is required!</div>
-                      <div *ngIf="disadvantage.get('name').errors?.minlength && form.submitted" class="invalid-tooltip">Disadvantage name must contain at least 3 characters!</div>
+                      <div *ngIf="disadvantage.get('name').errors?.minlength && form.submitted" class="invalid-tooltip">Disadvantage name must contain at least
+                        3 characters!
+                      </div>
 
                     </div>
                     <div class="form-group">
                       <label for="dis-description">{{ 'forms.description' | translate}}</label>
                       <textarea class="form-control" rows="2" formControlName="description" id="dis-description"></textarea>
-                      <div *ngIf="disadvantage.get('description').errors?.required && form.submitted" class="invalid-tooltip">Disadvantage description is required!</div>
-                      <div *ngIf="disadvantage.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Disadvantage description must contain at least 3 characters!</div>
+                      <div *ngIf="disadvantage.get('description').errors?.required && form.submitted" class="invalid-tooltip">Disadvantage description is
+                        required!
+                      </div>
+                      <div *ngIf="disadvantage.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Disadvantage description must
+                        contain at least 3 characters!
+                      </div>
 
                     </div>
                   </div>

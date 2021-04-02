@@ -19,6 +19,8 @@ export class AuthGuard implements CanActivate {
       this.authenticationService.isLoggedIn()
         .subscribe((isLoggedIn) => {
           if (isLoggedIn) {
+            // 2. Check if the user has the role to view this page.
+            // let roles = this.authenticationService.getRoles();
             resolve(true);
           } else {
             reject(false);

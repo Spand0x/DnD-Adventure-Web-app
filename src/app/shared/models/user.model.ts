@@ -4,7 +4,7 @@ export class User {
   uuid: string;
   username: string;
   email: string;
-  // userRoles: Role[]
+  roles: string[];
   characters: CharacterBaseInfo[];
   // campaigns: Campaign;
 

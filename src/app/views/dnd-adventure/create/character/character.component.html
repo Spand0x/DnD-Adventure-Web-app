@@ -1,4 +1,4 @@
-<div class="card mb-5">
+<div class="container card mb-5 w-75">
   <div class="card-body">
     <aw-wizard #wizard>
 
@@ -9,7 +9,7 @@
       <aw-wizard-step stepTitle="Race" style="min-height: 120px;">
         <app-race-step (race)="selectRace($event)"></app-race-step>
         <div class="row justify-content-center mt-2">
-          <div class="col-lg-8 col-xs-12">
+          <div class="col-lg-10 col-xs-12">
             <button type="button" class="btn btn-primary" awPreviousStep>Back</button>
           </div>
         </div>
@@ -18,7 +18,7 @@
       <aw-wizard-step stepTitle="Class" style="min-height: 120px;">
         <app-class-step (characterClass)="selectClass($event)"></app-class-step>
         <div class="row justify-content-center mt-2">
-          <div class="col-lg-8 col-xs-12">
+          <div class="col-lg-10 col-xs-12">
             <button type="button" class="btn btn-primary" awPreviousStep>Back</button>
           </div>
         </div>
@@ -29,7 +29,7 @@
           <app-stats-step (statsResult)="selectStats($event)" [race]="selectedRace"></app-stats-step>
         </div>
         <div class="row justify-content-center mt-2">
-          <div class="col-lg-8 col-xs-12">
+          <div class="col-lg-11 col-xs-12">
             <button type="button" class="btn btn-primary" awPreviousStep>Back</button>
           </div>
         </div>
