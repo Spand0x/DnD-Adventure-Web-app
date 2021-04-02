@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, from, Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {User} from '../models/user.model';
 import {environment} from '../../../environments/environment';
@@ -74,6 +74,10 @@ export class AuthService {
 
   register(userRegistration): Observable<any> {
     return this.http.post(`${this.url}/register`, userRegistration);
+  }
+
+  getRoles(): string[] {
+    return this.user.roles;
   }
 
   // Todo: Not implemented yet:
