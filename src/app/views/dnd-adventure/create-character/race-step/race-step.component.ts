@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {RaceService} from '../../../../../shared/services/race.service';
-import {Race} from '../../../../../shared/models/race.model';
-import {NotifService} from '../../../../../shared/services/notif.service';
+import {NotifService} from '../../../../shared/services/notif.service';
+import {RaceService} from '../../../../shared/services/race.service';
+import {Race} from '../../../../shared/models/race.model';
 
 @Component({
   selector: 'app-race-step',

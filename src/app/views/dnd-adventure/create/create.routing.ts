@@ -12,7 +12,6 @@ const routes: Routes = [
     path: '', component: CreateComponent,
     children: [
       {path: '', redirectTo: 'character', pathMatch: 'full'},
-      {path: 'character', loadChildren: () => import('./character/character.module').then(m => m.CharacterModule)},
       {path: 'modifier', component: ModifierComponent},
       {path: 'race', component: RaceComponent},
       {path: 'spell', component: SpellComponent},

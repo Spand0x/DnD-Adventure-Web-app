@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {StatsEnum} from '../../../../../shared/models/stats.enum';
-import {Race} from '../../../../../shared/models/race.model';
-import {Modifier} from '../../../../../shared/models/stats-modifiers.model';
-import {DiceTypeEnum} from '../../../../../shared/models/dice-type.enum';
-import {RollDiceService} from '../../../../../shared/services/roll-dice.service';
+import {StatsEnum} from '../../../../shared/models/stats.enum';
+import {Race} from '../../../../shared/models/race.model';
+import {Modifier} from '../../../../shared/models/stats-modifiers.model';
+import {DiceTypeEnum} from '../../../../shared/models/dice-type.enum';
+import {RollDiceService} from '../../../../shared/services/roll-dice.service';
 
 @Component({
   selector: 'app-stats-step',

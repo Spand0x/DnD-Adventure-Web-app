@@ -2,7 +2,8 @@
     <div class="main-menu">
         <perfect-scrollbar class="scroll" [config]="{suppressScrollX: true}">
             <ul class="list-unstyled">
-                <li *ngFor="let item of menuItems"
+              <ng-container *ngFor="let item of menuItems">
+                <li *ngIf="item.id !== 'create' || canCreate"
                     [ngClass]="{'active': (selectedParentMenu === item.id && viewingParentMenu === '') || viewingParentMenu === item.id}">
                     <a *ngIf="item.newWindow" [href]="item.to" rel="noopener noreferrer" target="_blank">
                         <i [ngClass]="item.icon"></i>{{item.label | translate}}</a>
@@ -12,9 +13,8 @@
                     <a *ngIf="!item.newWindow && (!item.subs || (item.subs &&  item.subs.length===0))"
                         (click)="changeSelectedParentHasNoSubmenu(item.id); false" [routerLink]="item.to">
                         <i [ngClass]="item.icon"></i> {{item.label | translate}}</a>
-
-
                 </li>
+              </ng-container>
             </ul>
         </perfect-scrollbar>
     </div>

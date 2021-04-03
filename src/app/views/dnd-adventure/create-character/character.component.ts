@@ -1,15 +1,15 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Race} from '../../../../shared/models/race.model';
+import {Race} from '../../../shared/models/race.model';
 import {WizardComponent} from 'angular-archwizard';
-import {NotifService} from '../../../../shared/services/notif.service';
-import {CharacterClass} from '../../../../shared/models/character-class.model';
-import {WeaponService} from '../../../../shared/services/weapon.service';
-import {Weapon} from '../../../../shared/models/weapon.model';
-import {Spell} from '../../../../shared/models/spell.model';
-import {Character} from '../../../../shared/models/character.model';
-import {CharacterService} from '../../../../shared/services/character.service';
-import {CharacterStats} from '../../../../shared/models/character-stats.model';
-import {StatsEnum} from '../../../../shared/models/stats.enum';
+import {NotifService} from '../../../shared/services/notif.service';
+import {CharacterClass} from '../../../shared/models/character-class.model';
+import {WeaponService} from '../../../shared/services/weapon.service';
+import {Weapon} from '../../../shared/models/weapon.model';
+import {Spell} from '../../../shared/models/spell.model';
+import {Character} from '../../../shared/models/character.model';
+import {CharacterService} from '../../../shared/services/character.service';
+import {CharacterStats} from '../../../shared/models/character-stats.model';
+import {StatsEnum} from '../../../shared/models/stats.enum';
 
 @Component({
   selector: 'app-create-character',
