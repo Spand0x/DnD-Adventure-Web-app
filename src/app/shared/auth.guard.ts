@@ -20,11 +20,14 @@ export class AuthGuard implements CanActivate {
         .subscribe((isLoggedIn) => {
           if (isLoggedIn) {
             // 2. Check if the user has the role to view this page.
-            // let roles = this.authenticationService.getRoles();
+            const userRoles = this.authenticationService.getRoles();
+            if (route.data.role && !userRoles.includes(route.data.role)) {
+              this.router.navigate(['/']);
+            }
             resolve(true);
           } else {
             reject(false);
-            this.router.navigate(['index'], {queryParams: {returnUrl: state.url}});
+            this.router.navigate(['index']);
           }
         });
     });

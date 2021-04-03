@@ -1,10 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {WeaponService} from '../../../../../shared/services/weapon.service';
-import {Weapon} from '../../../../../shared/models/weapon.model';
-import {NotifService} from '../../../../../shared/services/notif.service';
-import {StatsEnum} from '../../../../../shared/models/stats.enum';
+import {WeaponService} from '../../../../shared/services/weapon.service';
+import {Weapon} from '../../../../shared/models/weapon.model';
+import {NotifService} from '../../../../shared/services/notif.service';
+import {StatsEnum} from '../../../../shared/models/stats.enum';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
-import {WeaponDescriptionComponent} from '../../../../../shared/components/weapon-description/weapon-description.component';
+import {WeaponDescriptionComponent} from '../../../../shared/components/weapon-description/weapon-description.component';
 
 @Component({
   selector: 'app-weapon-step',

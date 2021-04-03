@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {CharacterClassService} from '../../../../../shared/services/character-class.service';
-import {CharacterClass} from '../../../../../shared/models/character-class.model';
-import {NotifService} from '../../../../../shared/services/notif.service';
+import {CharacterClass} from '../../../../shared/models/character-class.model';
+import {CharacterClassService} from '../../../../shared/services/character-class.service';
+import {NotifService} from '../../../../shared/services/notif.service';
 
 @Component({
   selector: 'app-class-step',
