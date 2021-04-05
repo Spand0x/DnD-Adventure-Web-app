@@ -28,7 +28,7 @@ export class RaceComponent implements OnInit {
     this.initModifiers();
     this.raceForm = new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      description: new FormControl(null, [Validators.required, Validators.minLength(10)]),
+      description: new FormControl(null, [Validators.required, Validators.minLength(5)]),
       advantages: new FormArray([this.createFormGroup()]),
       disadvantages: new FormArray([this.createFormGroup()]),
       modifiers: new FormControl(null, [Validators.required])
@@ -84,7 +84,7 @@ export class RaceComponent implements OnInit {
   createFormGroup() {
     return new FormGroup({
       name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
-      description: new FormControl(null, [Validators.required, Validators.minLength(10)])
+      description: new FormControl(null, [Validators.required, Validators.minLength(5)])
     });
   }
 }

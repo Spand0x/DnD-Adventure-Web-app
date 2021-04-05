@@ -35,8 +35,8 @@ export class WeaponComponent implements OnInit {
 
   ngOnInit(): void {
     this.weaponForm = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
-      description: new FormControl(null, [Validators.required]),
+      name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+      description: new FormControl(null, [Validators.required, Validators.minLength(5)]),
       gold: new FormControl(null, [Validators.required, Validators.min(0)]),
       rarity: new FormControl(null, [Validators.required]),
       weaponType: new FormControl(null, [Validators.required]),

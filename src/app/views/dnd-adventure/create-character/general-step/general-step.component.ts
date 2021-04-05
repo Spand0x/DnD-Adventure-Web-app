@@ -15,7 +15,7 @@ export class GeneralStepComponent implements OnInit {
 
   ngOnInit(): void {
     this.generalForm = new FormGroup({
-      name: new FormControl(null, [Validators.required]),
+      name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
       description: new FormControl(null),
       gold: new FormControl(0, [Validators.required, Validators.min(0)]),
       imageUrl: new FormControl('https://i.pinimg.com/originals/ca/81/7c/ca817c36cee2353a47a48e47f4e52809.jpg')
