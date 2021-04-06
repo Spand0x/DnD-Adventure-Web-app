@@ -68,20 +68,26 @@ const data: IMenuItem[] = [
     ]
   },
   {
-    id: 'list',
+    id: 'users',
     icon: 'iconsminds-three-arrow-fork',
-    label: 'menu.list',
-    to: '/list',
-    subs: [{
-      icon: 'iconsminds-three-arrow-fork',
-      label: 'menu.actions',
-      to: '/list/action',
-      subs: [{
-        icon: 'iconsminds-three-arrow-fork',
-        label: 'menu.attack',
-        to: '/list/action/attack'
-      }]
-    }]
+    label: 'menu.users-management',
+    to: '/users-management'
   }
+  // {
+  //   id: 'list',
+  //   icon: 'iconsminds-three-arrow-fork',
+  //   label: 'menu.list',
+  //   to: '/list',
+  //   subs: [{
+  //     icon: 'iconsminds-three-arrow-fork',
+  //     label: 'menu.actions',
+  //     to: '/list/action',
+  //     subs: [{
+  //       icon: 'iconsminds-three-arrow-fork',
+  //       label: 'menu.attack',
+  //       to: '/list/action/attack'
+  //     }]
+  //   }]
+  // }
 ];
 export default data;

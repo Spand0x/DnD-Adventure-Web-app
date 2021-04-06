@@ -18,7 +18,10 @@ export class NotifService {
 
   errorNotification(error, message?) {
     if (!message) {
-      message = error.error ? error.error.message : 'Uh-oh, something went wrong.';
+      // message = error.error ? error.error.message : 'Uh-oh, something went wrong.';
+      message = error.error ?
+        error.error.message ? error.error.message : error.error
+        : 'Uh-oh, something went wrong.';
     }
 
     this.notifications.create('Error', message, NotificationType.Error,

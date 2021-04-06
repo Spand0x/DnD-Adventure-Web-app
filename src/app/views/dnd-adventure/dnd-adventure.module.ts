@@ -10,7 +10,7 @@ import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {SimpleNotificationsModule} from 'angular2-notifications';
 import {NotifService} from '../../shared/services/notif.service';
 import {NgSelectModule} from '@ng-select/ng-select';
-import { CharacterComponent } from './character/character.component';
+import {CharacterComponent} from './character/character.component';
 import {CharacterModule} from './character/character.module';
 
 
@@ -19,19 +19,19 @@ import {CharacterModule} from './character/character.module';
     DndAdventureComponent,
     CharacterComponent
   ],
-    imports: [
-        CommonModule,
-        DndAdventureRoutingModule,
-        SharedModule,
-        LayoutContainersModule,
-        ReactiveFormsModule,
-        SimpleNotificationsModule.forRoot(),
-        TabsModule.forRoot(),
-        AccordionModule.forRoot(),
-        NgSelectModule,
-        FormsModule,
-        CharacterModule,
-    ],
+  imports: [
+    CommonModule,
+    DndAdventureRoutingModule,
+    SharedModule,
+    LayoutContainersModule,
+    ReactiveFormsModule,
+    SimpleNotificationsModule.forRoot(),
+    TabsModule.forRoot(),
+    AccordionModule.forRoot(),
+    NgSelectModule,
+    FormsModule,
+    CharacterModule,
+  ],
   providers: [
     NotifService
   ]

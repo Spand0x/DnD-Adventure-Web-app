@@ -6,6 +6,7 @@ export class User {
   email: string;
   roles: string[];
   characters: CharacterBaseInfo[];
+  newRole: string;
   // campaigns: Campaign;
 
 }

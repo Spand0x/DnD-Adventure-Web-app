@@ -15,7 +15,7 @@
               <label>{{ 'forms.description' | translate }}</label>
               <textarea class="form-control" rows="4" formControlName="description"></textarea>
               <div *ngIf="raceForm.get('description').errors?.required && form.submitted" class="invalid-tooltip">Description is required!</div>
-              <div *ngIf="raceForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Description must contain at least 10
+              <div *ngIf="raceForm.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Description must contain at least 5
                 characters!
               </div>
             </div>
@@ -47,7 +47,7 @@
                       <div *ngIf="advantage.get('description').errors?.required && form.submitted" class="invalid-tooltip">Advantage description is required!
                       </div>
                       <div *ngIf="advantage.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Advantage description must contain
-                        at least 10 characters!
+                        at least 5 characters!
                       </div>
                     </div>
                   </div>
@@ -89,7 +89,7 @@
                         required!
                       </div>
                       <div *ngIf="disadvantage.get('description').errors?.minlength && form.submitted" class="invalid-tooltip">Disadvantage description must
-                        contain at least 3 characters!
+                        contain at least 5 characters!
                       </div>
 
                     </div>
