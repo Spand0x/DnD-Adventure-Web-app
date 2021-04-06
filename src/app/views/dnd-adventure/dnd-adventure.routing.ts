@@ -12,7 +12,8 @@ const routes: Routes = [
       {path: 'create', loadChildren: () => import('./create/create.module').then(m => m.CreateModule), canActivate: [AuthGuard], data: {role: 'DUNGEON_MASTER'}},
       {path: 'create/character', loadChildren: () => import('./create-character/character.module').then(m => m.CharacterModule)},
       {path: 'list', loadChildren: () => import('./list/list.module').then(m => m.ListModule)},
-      {path: 'character/:uuid', loadChildren: () => import('./character/character.module').then(m => m.CharacterModule)}
+      {path: 'character/:uuid', loadChildren: () => import('./character/character.module').then(m => m.CharacterModule)},
+      {path: 'users-management', loadChildren: () => import('./users-management/users-management.module').then(m => m.UsersManagementModule)}
     ]
   }
 ];
