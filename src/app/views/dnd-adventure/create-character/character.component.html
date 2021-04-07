@@ -19,7 +19,7 @@
         <app-class-step (characterClass)="selectClass($event)"></app-class-step>
         <div class="row justify-content-center mt-2">
           <div class="col-lg-10 col-xs-12">
-            <button type="button" class="btn btn-primary" awPreviousStep>Back</button>
+            <button type="button" class="btn btn-primary" (click)="goBack('toRace')">Back</button>
           </div>
         </div>
       </aw-wizard-step>

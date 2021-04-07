@@ -24,11 +24,11 @@ export class CharacterService {
     return this.http.get<Character>(`${this.url}/${uuid}`);
   }
 
-  changeHp(uuid: string, newHp: number): Observable<any> {
-    return this.http.post(`${this.url}/change-hp`, {uuid, currentHitPoints: newHp});
+  changeHp(uuid: string, newHp: number): Observable<Character> {
+    return this.http.post<Character>(`${this.url}/change-hp`, {uuid, currentHitPoints: newHp});
   }
 
-  castSpell(uuid: string): Observable<any> {
-    return this.http.post(`${this.url}/cast-spell`, {uuid});
+  castSpell(uuid: string): Observable<Character> {
+    return this.http.post<Character>(`${this.url}/cast-spell`, {uuid});
   }
 }

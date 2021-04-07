@@ -46,7 +46,10 @@ export class CharacterComponent implements OnInit {
 
   changeHp(newHp): void {
     this.characterService.changeHp(this.character.uuid, newHp)
-      .subscribe(res => this.notifService.successNotification('Hp changed successfully.'),
+      .subscribe(char => {
+          this.character = char;
+          this.notifService.successNotification('Hp changed successfully.');
+        },
         error => this.notifService.errorNotification(error));
   }
 
@@ -57,7 +60,10 @@ export class CharacterComponent implements OnInit {
 
   castSpell() {
     this.characterService.castSpell(this.character.uuid)
-      .subscribe(res => this.notifService.successNotification('Successfully casted a spell.'),
+      .subscribe(char => {
+          this.character = char;
+          this.notifService.successNotification('Successfully casted a spell.');
+        },
         error => this.notifService.errorNotification(error));
   }
 }

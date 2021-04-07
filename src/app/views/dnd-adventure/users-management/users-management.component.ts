@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {NotifService} from '../../../shared/services/notif.service';
 import {User} from '../../../shared/models/user.model';
 import {UserService} from '../../../shared/services/user.service';
+import {UserRoleService} from '../../../shared/services/user-role.service';
+import {UserRole} from '../../../shared/models/user-role.model';
 
 @Component({
   selector: 'app-users-management',
@@ -20,15 +22,17 @@ export class UsersManagementComponent implements OnInit {
   isFirstPage: boolean;
   isLastPage: boolean;
   isPageEmpty: boolean;
-  availableRoles: string[] = ['USER', 'DUNGEON_MASTER', 'ADMIN'];
+  availableRoles: UserRole[];
 
 
   constructor(private userService: UserService,
-              private notifService: NotifService) {
+              private notifService: NotifService,
+              private userRoleService: UserRoleService) {
   }
 
   ngOnInit(): void {
-    // this.roleNameSelected = new FormControl('');
+    this.userRoleService.getAll().subscribe(roles => this.availableRoles = roles
+      , error => this.notifService.errorNotification(error));
     this.loadData(this.usersPerPage, this.currentPage, this.searchValue);
   }
 
@@ -72,6 +76,7 @@ export class UsersManagementComponent implements OnInit {
       this.notifService.errorNotification({error: 'You must select role first.'});
       return;
     }
+    user = {uuid: user.uuid, newRole: user.newRole};
     this.userService.changeRole(user)
       .subscribe(u => {
         this.notifService.successNotification('Role changed successfully.');
