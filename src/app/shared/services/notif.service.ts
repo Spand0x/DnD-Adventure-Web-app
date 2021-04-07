@@ -43,4 +43,10 @@ export class NotifService {
     this.notifications.create('Dice Rolled:', message, NotificationType.Success,
       {theClass: 'outline', timeOut: 10000, showProgressBar: false});
   }
+
+  diceStatNotification(rolls: number[], result: string) {
+    const message = `<h4 class="font-weight-bolder">${result}</h4>${rolls[0]} + ${rolls[1]} + ${rolls[2]} + <span class="text-danger">${rolls[3]}</span>`;
+    this.notifications.create('Dice Rolled:', message, NotificationType.Success,
+      {theClass: 'outline', timeOut: 10000, showProgressBar: false});
+  }
 }

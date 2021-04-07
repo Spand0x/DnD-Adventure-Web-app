@@ -16,9 +16,6 @@ export class RollDiceService {
     for (let i = 0; i < times; i++) {
       result.push(Math.floor(Math.random() * dice) + 1);
     }
-    const minNumber = Math.min(...result);
-    const minNumberIndex = result.indexOf(minNumber);
-    result.splice(minNumberIndex, 1);
     return result;
   }
 
