@@ -34,16 +34,17 @@ export class BasicInformationComponent implements OnInit {
     }
     this.hpModify = Math.round(this.hpModify);
     const hpAtStart = this.curHP;
+    let curHP = this.curHP;
     if (action === 'heal') {
-      this.curHP += this.hpModify;
+      curHP += this.hpModify;
     } else {
-      this.curHP -= this.hpModify;
+      curHP -= this.hpModify;
     }
-    this.curHP = this.curHP > this.maxHP ? this.maxHP : this.curHP;
-    this.curHP = this.curHP < 0 ? 0 : this.curHP;
+    curHP = curHP > this.maxHP ? this.maxHP : curHP;
+    curHP = curHP < 0 ? 0 : curHP;
     this.hpModify = 0;
-    if (hpAtStart !== this.curHP) {
-      this.hpChanged.emit(this.curHP);
+    if (hpAtStart !== curHP) {
+      this.hpChanged.emit(curHP);
     }
   }
 
@@ -52,7 +53,6 @@ export class BasicInformationComponent implements OnInit {
       this.notifService.infoNotification('You have no available spell charges!');
       return;
     }
-    this.availableSpellCharges = this.availableSpellCharges - 1;
     this.castSpellBtn.emit();
   }
 }

@@ -29,7 +29,7 @@
                   </div>
                   <div class="w-25 w-xs-100 mr-2">
                     <div class="mb-1 text-muted text-small">Available Roles</div>
-                    <ng-select bindLabel="role" [(ngModel)]="user.newRole" [items]="availableRoles" appearance="outline" [searchable]="false">
+                    <ng-select bindLabel="role" [(ngModel)]="user.newRole" bindValue="uuid" [items]="availableRoles" appearance="outline" [searchable]="false">
                     </ng-select>
                   </div>
                   <div class="mb-0 w-xs-100">

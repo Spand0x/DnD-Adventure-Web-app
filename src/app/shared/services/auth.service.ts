@@ -39,16 +39,8 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  signIn(credentials: ISignInCredentials): Promise<any> {
-    return this.http.post(environment.apiUrl + '/login',
-      {username: credentials.username, password: credentials.password},
-      {observe: 'response'})
-      .toPromise()
-      .then(response => {
-        return this.getUserInfo().toPromise;
-      }, () => {
-        throw new Error('Wrong email or password.');
-      });
+  signIn(credentials: ISignInCredentials): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login`, {username: credentials.username, password: credentials.password});
   }
 
   isLoggedIn(): Observable<boolean> {

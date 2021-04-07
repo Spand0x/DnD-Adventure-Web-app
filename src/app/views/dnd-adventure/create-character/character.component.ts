@@ -81,7 +81,10 @@ export class CharacterComponent implements OnInit {
     this.createCharacter();
   }
 
-  goBack() {
+  goBack(step?: string) {
+    if (step) {
+      this.selectedRace = null;
+    }
     this.wizard.goToPreviousStep();
   }
 
