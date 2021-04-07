@@ -21,7 +21,7 @@ export class RaceStepComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.raceService.getAllRaces().subscribe(races => {
-        this.races = races;
+        this.races = races.sort((a, b) => a.name.localeCompare(b.name));
       }, error => this.notifService.errorNotification(error),
       () => this.isLoading = false);
   }

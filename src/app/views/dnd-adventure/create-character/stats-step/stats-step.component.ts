@@ -5,6 +5,7 @@ import {Race} from '../../../../shared/models/race.model';
 import {Modifier} from '../../../../shared/models/stats-modifiers.model';
 import {DiceTypeEnum} from '../../../../shared/models/dice-type.enum';
 import {RollDiceService} from '../../../../shared/services/roll-dice.service';
+import {NotifService} from '../../../../shared/services/notif.service';
 
 @Component({
   selector: 'app-stats-step',
@@ -23,7 +24,8 @@ export class StatsStepComponent implements OnInit {
   @Input() race: Race;
   @Output() statsResult: EventEmitter<any> = new EventEmitter();
 
-  constructor(private rollDiceService: RollDiceService) {
+  constructor(private rollDiceService: RollDiceService,
+              private notifService: NotifService) {
   }
 
   ngOnInit(): void {
@@ -63,9 +65,16 @@ export class StatsStepComponent implements OnInit {
 
   rollDice() {
     const rolls = this.rollDiceService.rollDiceForStats(DiceTypeEnum.D6, 4);
+    rolls.sort((a, b) => b - a);
+    const allRolls = rolls.slice(0);
+
+    const minNumber = Math.min(...rolls);
+    const minNumberIndex = rolls.indexOf(minNumber);
+    rolls.splice(minNumberIndex, 1);
+
     const result = rolls.reduce((acc, cur) => acc + cur, 0);
-    // result = result === 4 ? 3 : result;
-    // result = result > 18 ? 18 : result;
+
+    this.notifService.diceStatNotification(allRolls, result);
     this.diceRollsResult.push(result);
   }
 

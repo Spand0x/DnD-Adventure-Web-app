@@ -19,6 +19,7 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import {CharacterRoutingModule} from './character.routing';
 import { SpellStepComponent } from './spell-step/spell-step.component';
 import { SpellsHeaderComponent } from './spell-step/spells-header/spells-header.component';
+import {SimpleNotificationsModule} from 'angular2-notifications';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { SpellsHeaderComponent } from './spell-step/spells-header/spells-header.
     NgSelectModule,
     FormsModule,
     PaginationModule.forRoot(),
-    BsDropdownModule
+    BsDropdownModule,
+    SimpleNotificationsModule
   ], providers: [
     NotifService,
     BsModalService,

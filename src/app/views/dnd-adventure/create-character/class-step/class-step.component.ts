@@ -21,7 +21,7 @@ export class ClassStepComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.classService.getAllClasses().subscribe(classes => {
-        this.classes = classes;
+        this.classes = classes.sort((a, b) => a.name.localeCompare(b.name));
       }, error => this.notifService.errorNotification(error),
       () => this.isLoading = false);
   }
