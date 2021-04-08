@@ -7,13 +7,15 @@ import {PerfectScrollbarModule} from 'ngx-perfect-scrollbar';
 import {WeaponDescriptionComponent} from './components/weapon-description/weapon-description.component';
 import {SpellDescriptionComponent} from './components/spell-description/spell-description.component';
 import {CharacterDescriptionComponent} from './components/character-description/character-description.component';
+import {ModalConfirmationComponent} from './components/modal-confirmation/modal-confirmation.component';
 
 @NgModule({
   declarations: [
     ErrorComponent,
     WeaponDescriptionComponent,
     SpellDescriptionComponent,
-    CharacterDescriptionComponent
+    CharacterDescriptionComponent,
+    ModalConfirmationComponent
   ],
   imports: [
     RouterModule,
@@ -26,7 +28,8 @@ import {CharacterDescriptionComponent} from './components/character-description/
     RouterModule,
     ErrorComponent,
     TranslateModule,
-    CommonModule
+    CommonModule,
+    ModalConfirmationComponent
   ]
 })
 export class SharedModule {

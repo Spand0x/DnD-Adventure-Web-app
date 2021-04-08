@@ -21,6 +21,14 @@ export class ModifierService {
   }
 
   findAll(): Observable<Modifier[]> {
-    return this.http.get<Modifier[]>(`${this.url}/all`);
+    return this.http.get<Modifier[]>(`${this.url}`);
+  }
+
+  getAllPaginated(searchValue: string, pageNumber: number, pageSize: number, orderBy: string): Observable<any> {
+    return this.http.get(`${this.url}/all?search=${searchValue}&page=${pageNumber}&size=${pageSize}&sort=${orderBy}`);
+  }
+
+  delete(uuid: string): Observable<any> {
+    return this.http.delete(`${this.url}/delete/${uuid}`);
   }
 }

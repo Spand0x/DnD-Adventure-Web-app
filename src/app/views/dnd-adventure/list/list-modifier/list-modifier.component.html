@@ -1,0 +1,42 @@
+<app-list-header (itemsPerPageChange)="modifiersPerPageChange($event)"
+                 (searchItemsByKey)="searchModifierByKeyUp($event)"
+                 (changeOrderBy)="changeOrderBy($event)"
+                 [itemsPerPage]="modifiersPerPage"
+                 [itemOrder]="orderBy"
+                 [itemOptionsOrders]="optionsOrderBy"></app-list-header>
+<div class="loading" *ngIf="isLoading"></div>
+<div class="row" *ngIf="!isLoading">
+
+  <div class="col-12 list text-primary">
+    <div class="card d-flex flex-row mb-3 container w-75" *ngFor="let modifier of modifiers; let i=index">
+      <div class="d-flex flex-grow-1 min-width-zero">
+        <div
+          class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+          <div class="list-item-heading mb-0 truncate w-70 w-xs-100">
+            <div class="mb-0 text-muted text-small">Name</div>
+            {{modifier.name}}
+          </div>
+          <div class="list-item-heading mb-0 truncate w-15 w-xs-100 mr-2 align-items-end">
+            <div class="mb-0 text-muted text-small">Value</div>
+            {{modifier.value}}
+          </div>
+<!--          <div class="mb-0 w-10 w-xs-100" *ngIf="isAdmin">-->
+<!--            <button type="button" class="btn btn-primary" (click)="edit(modifier)">Edit</button>-->
+<!--          </div>-->
+<!--          <div class="mb-0 w-xs-100" *ngIf="isAdmin">-->
+<!--            <app-modal-confirmation buttonClass="btn-danger" buttonName="Delete"-->
+<!--                                    message="Are you sure you want to delete this Modifier?"-->
+<!--                                    (confirmation)="delete(modifier)"></app-modal-confirmation>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <app-list-pagination [service]="modifierService"
+                         (data)="setData($event)"
+                         [itemsPerPage]="modifiersPerPage"
+                         [orderBy]="orderBy"
+                         [searchValue]="searchValue"></app-list-pagination>
+  </div>
+</div>
