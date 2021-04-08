@@ -28,7 +28,7 @@ export class ModifierService {
     return this.http.get(`${this.url}/all?search=${searchValue}&page=${pageNumber}&size=${pageSize}&sort=${orderBy}`);
   }
 
-  delete(uuid: string): Observable<any> {
-    return this.http.delete(`${this.url}/delete/${uuid}`);
-  }
+  // delete(uuid: string): Observable<any> {
+  //   return this.http.delete(`${this.url}/delete/${uuid}`);
+  // }
 }
