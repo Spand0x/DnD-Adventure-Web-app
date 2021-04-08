@@ -1,0 +1,45 @@
+<div class="container card mb-2">
+  <div class="card-body">
+    <div class="row mr-0 align-items-center">
+      <div class="col-12 my-auto">
+        <div class="row justify-content-between">
+          <div class="input-group col-5">
+            <input class="form-control" placeholder="Search" [(ngModel)]="searchValue"
+                   aria-describedby="basic-addon2" (keyup.enter)="onSearchKeyUp()">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="submit" (click)="onSearchKeyUp()">Search</button>
+            </div>
+          </div>
+          <div class="">
+            <div class="d-inline-block position-relative mt-2">
+              <div class="float-md-left mr-1 mb-1" dropdown>
+                <button dropdownToggle type="button" class="btn btn-outline-dark btn-xs dropdown-toggle"
+                        aria-controls="dropdown-basic">
+                  Order By : {{itemOrder.label}} <span class="caret"></span>
+                </button>
+                <ul *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem" *ngFor="let item of itemOptionsOrders"><a
+                    [ngClass]="item.label === itemOrder.label ? 'dropdown-item active' : 'dropdown-item'"
+                    (click)="onChangeOrderBy(item)">{{item.label}}</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="d-inline-block position-relative">
+              <div class="float-md-left mr-1 mb-1" dropdown>
+                <button dropdownToggle type="button" class="btn btn-outline-dark btn-xs dropdown-toggle"
+                        aria-controls="dropdown-basic">
+                  Per Page : {{itemsPerPage}} <span class="caret"></span>
+                </button>
+                <ul *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+                  <li role="menuitem" *ngFor="let number of itemsOptionsPerPage"><a
+                    [ngClass]="number === itemsPerPage ? 'dropdown-item active' : 'dropdown-item'"
+                    (click)="onChangeItemsPerPage(number)">{{number}}</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

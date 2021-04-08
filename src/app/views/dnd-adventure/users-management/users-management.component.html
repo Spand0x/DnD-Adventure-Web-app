@@ -2,61 +2,67 @@
   <div class="col-12">
     <app-heading></app-heading>
     <div class="separator mb-5"></div>
-    <div class="container card w-85">
+    <div class="container card mb-2">
       <div class="card-body">
         <app-users-management-header (usersPerPageChange)="usersPerPageChange($event)"
                                      (searchUserByKey)="searchUserByKeyUp($event)"
                                      [usersPerPage]="usersPerPage"
         ></app-users-management-header>
-        <div class="loading" *ngIf="isLoading"></div>
-        <div class="row" *ngIf="!isLoading">
-          <div class="col-12 list">
-            <div class="card d-flex flex-row mb-3" *ngFor="let user of users; let i=index">
-              <div class="d-flex flex-grow-1 min-width-zero">
-                <div
-                  class="card-body border rounded-pill border-primary align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
-                  <div class="list-item-heading mb-0 truncate w-30 w-xs-100">
-                    <div class="mb-0 text-muted text-small">Name</div>
-                    {{user.username}}
-                  </div>
-                  <div class="list-item-heading mb-0 truncate w-30 w-xs-100">
-                    <div class="mb-0 text-muted text-small">Email</div>
-                    {{user.email}}
-                  </div>
-                  <div class="list-item-heading mb-0 truncate w-20 w-xs-100">
-                    <div class="mb-0 text-muted text-small">Role</div>
-                    {{getUserRole(user.roles)}}
-                  </div>
-                  <div class="w-25 w-xs-100 mr-2">
-                    <div class="mb-1 text-muted text-small">Available Roles</div>
-                    <ng-select bindLabel="role" [(ngModel)]="user.newRole" bindValue="uuid" [items]="availableRoles" appearance="outline" [searchable]="false">
-                    </ng-select>
-                  </div>
-                  <div class="mb-0 w-xs-100">
-                    <button type="button" class="btn btn-primary" (click)="changeRole(user)">Change</button>
-                  </div>
-                  <div *ngIf="canDelete" class="mb-0 ml-2 w-xs-100">
-                    <button type="button" class="btn btn-danger" (click)="deleteUser(user.uuid)">Delete</button>
-                  </div>
-                </div>
+      </div>
+    </div>
+    <div class="loading" *ngIf="isLoading"></div>
+    <div class="row" *ngIf="!isLoading">
+      <div class="col-12 list">
+        <div class="card d-flex flex-row mb-3 container-fluid w-85" *ngFor="let user of users; let i=index">
+          <div class="d-flex flex-grow-1 min-width-zero">
+            <div
+              class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+              <div class="list-item-heading mb-0 truncate w-30 w-xs-100">
+                <div class="mb-0 text-muted text-small">Name</div>
+                {{user.username}}
+              </div>
+              <div class="list-item-heading mb-0 truncate w-30 w-xs-100">
+                <div class="mb-0 text-muted text-small">Email</div>
+                {{user.email}}
+              </div>
+              <div class="list-item-heading mb-0 truncate w-20 w-xs-100">
+                <div class="mb-0 text-muted text-small">Role</div>
+                {{getUserRole(user.roles)}}
+              </div>
+              <div class="w-25 w-xs-100 mr-2">
+                <div class="mb-1 text-muted text-small">Available Roles</div>
+                <ng-select bindLabel="role" [(ngModel)]="user.newRole" bindValue="uuid" [items]="availableRoles" appearance="outline" [searchable]="false">
+                </ng-select>
+              </div>
+              <div class="mb-0 w-xs-100">
+                <button type="button" class="btn btn-primary" (click)="changeRole(user)">Change</button>
+              </div>
+              <div *ngIf="canDelete" class="mb-0 ml-2 w-xs-100">
+                <app-modal-confirmation buttonClass="btn-danger" buttonName="Delete"
+                                        message="Are you sure you want to delete this User?"
+                                        (confirmation)="deleteUser(user.uuid)"></app-modal-confirmation>
               </div>
             </div>
           </div>
-          <div class="col-12">
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="container card">
+          <div class="card-body p-0 pt-3">
             <pagination [totalItems]="totalUsers" [itemsPerPage]="usersPerPage" [rotate]="true" [maxSize]="5"
                         [(ngModel)]="currentPage" (pageChanged)="changePage($event)" class="justify-content-center"
                         [customNextTemplate]="nextTemplate" [customPreviousTemplate]="prevTemplate">
             </pagination>
           </div>
         </div>
-        <ng-template #nextTemplate let-disabled="disabled" let-currentPage="currentPage">
-          <i class='simple-icon-arrow-right'></i>
-        </ng-template>
-        <ng-template #prevTemplate let-disabled="disabled" let-currentPage="currentPage">
-          <i class='simple-icon-arrow-left'></i>
-        </ng-template>
       </div>
     </div>
+    <ng-template #nextTemplate let-disabled="disabled" let-currentPage="currentPage">
+      <i class='simple-icon-arrow-right'></i>
+    </ng-template>
+    <ng-template #prevTemplate let-disabled="disabled" let-currentPage="currentPage">
+      <i class='simple-icon-arrow-left'></i>
+    </ng-template>
   </div>
 </div>
 <simple-notifications></simple-notifications>
