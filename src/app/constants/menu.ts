@@ -10,28 +10,28 @@ export interface IMenuItem {
 const data: IMenuItem[] = [
   {
     id: 'home',
-    icon: 'iconsminds-air-balloon-1',
+    icon: 'iconsminds-doctor',
     label: 'menu.characters',
     to: '/home'
   },
   {
     id: 'create-character',
-    icon: 'iconsminds-three-arrow-fork',
+    icon: 'iconsminds-add-user',
     label: 'menu.create-character',
     to: '/create/character',
   },
   {
     id: 'create',
-    icon: 'iconsminds-bucket',
+    icon: 'simple-icon-pencil',
     label: 'menu.create',
     to: '/create',
     subs: [{
-      icon: 'simple-icon-briefcase',
+      icon: 'simple-icon-plus',
       label: 'menu.modifier',
       to: '/create/modifier'
     },
       {
-        icon: 'simple-icon-briefcase',
+        icon: 'iconsminds-paw',
         label: 'menu.race',
         to: '/create/race'
       },
@@ -51,17 +51,17 @@ const data: IMenuItem[] = [
       //   to: '/create/action/other'
       // }
       {
-        icon: 'simple-icon-briefcase',
+        icon: 'simple-icon-ghost',
         label: 'menu.class',
         to: '/create/class'
       },
       {
-        icon: 'simple-icon-briefcase',
+        icon: 'simple-icon-fire',
         label: 'menu.spell',
         to: '/create/spell'
       },
       {
-        icon: 'simple-icon-briefcase',
+        icon: 'iconsminds-three-arrow-fork',
         label: 'menu.weapon',
         to: '/create/weapon'
       }
@@ -69,17 +69,17 @@ const data: IMenuItem[] = [
   },
   {
     id: 'users',
-    icon: 'iconsminds-three-arrow-fork',
+    icon: 'simple-icon-people',
     label: 'menu.users-management',
     to: '/users-management'
   },
   {
     id: 'list',
-    icon: 'iconsminds-three-arrow-fork',
+    icon: 'simple-icon-list',
     label: 'menu.list',
     to: '/list',
     subs: [{
-      icon: 'iconsminds-three-arrow-fork',
+      icon: 'simple-icon-plus',
       label: 'menu.modifiers',
       to: '/list/modifiers',
     }]
