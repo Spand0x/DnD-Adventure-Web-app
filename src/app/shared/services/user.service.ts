@@ -23,4 +23,8 @@ export class UserService {
   changeRole(user: User): Observable<any> {
     return this.http.post(`${this.url}/change-role`, user);
   }
+
+  deleteUser(userUuid: string) {
+    return this.http.delete(`${this.url}/delete/${userUuid}`);
+  }
 }

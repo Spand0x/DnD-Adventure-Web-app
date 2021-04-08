@@ -4,6 +4,7 @@ import {User} from '../../../shared/models/user.model';
 import {UserService} from '../../../shared/services/user.service';
 import {UserRoleService} from '../../../shared/services/user-role.service';
 import {UserRole} from '../../../shared/models/user-role.model';
+import {AuthService} from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-users-management',
@@ -12,6 +13,7 @@ import {UserRole} from '../../../shared/models/user-role.model';
 export class UsersManagementComponent implements OnInit {
 
   isLoading = false;
+  canDelete: boolean;
   users: User[];
 
   searchValue: string;
@@ -27,10 +29,12 @@ export class UsersManagementComponent implements OnInit {
 
   constructor(private userService: UserService,
               private notifService: NotifService,
-              private userRoleService: UserRoleService) {
+              private userRoleService: UserRoleService,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.canDelete = this.authService.getRoles().includes('ADMIN');
     this.userRoleService.getAll().subscribe(roles => this.availableRoles = roles
       , error => this.notifService.errorNotification(error));
     this.loadData(this.usersPerPage, this.currentPage, this.searchValue);
@@ -93,5 +97,14 @@ export class UsersManagementComponent implements OnInit {
       case 3:
         return 'Admin';
     }
+  }
+
+  deleteUser(userUuid: string) {
+    this.userService.deleteUser(userUuid)
+      .subscribe(res => {
+        this.notifService.successNotification('User deleted successfully!');
+        this.loadData(this.usersPerPage, this.currentPage, this.searchValue);
+        }
+      , error => this.notifService.errorNotification(error));
   }
 }

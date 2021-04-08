@@ -2,7 +2,7 @@
   <div class="col-12">
     <app-heading></app-heading>
     <div class="separator mb-5"></div>
-    <div class="container card w-75">
+    <div class="container card w-85">
       <div class="card-body">
         <app-users-management-header (usersPerPageChange)="usersPerPageChange($event)"
                                      (searchUserByKey)="searchUserByKeyUp($event)"
@@ -34,6 +34,9 @@
                   </div>
                   <div class="mb-0 w-xs-100">
                     <button type="button" class="btn btn-primary" (click)="changeRole(user)">Change</button>
+                  </div>
+                  <div *ngIf="canDelete" class="mb-0 ml-2 w-xs-100">
+                    <button type="button" class="btn btn-danger" (click)="deleteUser(user.uuid)">Delete</button>
                   </div>
                 </div>
               </div>
